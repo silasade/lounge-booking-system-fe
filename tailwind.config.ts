@@ -8,7 +8,16 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        montserrat: ["var(--montserrat)"],
+        roboto: ["var(--roboto)"],
+      },
       colors: {
+        heroBg: "#00000099",
+        primary: "#74C0DB",
+        secondary: "#D4A373",
+        heroText:"#B3B3B3",
+        borderColor:"#D9D9D9",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },

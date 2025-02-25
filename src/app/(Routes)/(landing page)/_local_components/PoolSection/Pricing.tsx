@@ -1,0 +1,18 @@
+import React from "react";
+
+function Pricing() {
+  return (
+    <div className="flex flex-col gap-8 pt-20">
+      <h2 className="text-secondary text-[32px] font-[700] text-center">
+        Pricing Details
+      </h2>
+      <div className="flex flex-col gap-4 text-[24px] font-[400]">
+        <p>Clear, Transparent Pricing</p>
+        <p>₦XX,XXX per hour&quot; (base rate for pool access)</p>
+        <p>Extra charges for add-ons like drinks, private bookings.</p>
+      </div>
+    </div>
+  );
+}
+
+export default Pricing;
