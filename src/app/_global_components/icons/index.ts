@@ -1,3 +1,3 @@
-export { Facebook } from "./facebook";
-export { FileTextLine } from "./FileTextLine";
-export { Instagram } from "./instargram";
+export { default as Facebook } from "./Facebook";
+export { default as FileTextLine } from "./FileTextLine";
+export {  default as Instagram } from "./Instargram";
