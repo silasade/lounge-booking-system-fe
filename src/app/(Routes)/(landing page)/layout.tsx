@@ -9,9 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 type Props = {
   children: React.ReactNode;
   booking: React.ReactNode;
-  bookingID: React.ReactNode;
 };
-function Layout({ children, booking, bookingID }: Props) {
+function Layout({ children, booking }: Props) {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const childrenRef = useRef<HTMLDivElement | null>(null);
   console.log(booking);
@@ -22,7 +21,7 @@ function Layout({ children, booking, bookingID }: Props) {
       backgroundColor: "black",
       scrollTrigger: {
         trigger: childrenRef.current,
-        start: "30% 60%",
+        start: "30% 50%",
         scrub: true,
       },
     });
@@ -37,7 +36,6 @@ function Layout({ children, booking, bookingID }: Props) {
 
         <div ref={childrenRef}>
           {booking}
-          {bookingID}
           {children}
         </div>
 
