@@ -113,14 +113,14 @@ function BookingDetails() {
           <h5 className="text-[20px] font-[400]">Status</h5>
           <p>{bookingDetails.status}</p>
         </div>
-        <div className="flex flex-col items-center gap-4 w-100">
+        <div className="flex flex-col items-center gap-4 w-[100%]">
           <button
             onClick={handleDownload}
             className="w-100 bg-primary h-[50px] font-[400] text-[20px] rounded-lg text-white"
           >
             Download
           </button>
-          <button onClick={handleClose} className="w-100 bg-[#E4E4E4] h-[50px] font-[400] text-[20px] rounded-lg text-[#4A4A4A]">
+          <button onClick={handleClose} className="w-[100%] bg-[#E4E4E4] h-[50px] font-[400] text-[20px] rounded-lg text-[#4A4A4A]">
             Cancel
           </button>
         </div>
