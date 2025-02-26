@@ -37,7 +37,7 @@ function BookingDetails() {
     }, 100); // Small delay to ensure state is updated first
   }, [router]);
   if (!bookingDetails.bookingId) {
-    router.push("/error"); // Redirect to an error page or handle accordingly
+   throw new Error("Id does not exist")
   }
   useEffect(() => {
     if (pathName === "/") {
@@ -113,14 +113,14 @@ function BookingDetails() {
           <h5 className="text-[20px] font-[400]">Status</h5>
           <p>{bookingDetails.status}</p>
         </div>
-        <div className="flex flex-col items-center gap-4 w-3/4">
+        <div className="flex flex-col items-center gap-4 w-full">
           <button
             onClick={handleDownload}
-            className="bg-primary h-[50px] font-[400] text-[20px] rounded-lg text-white"
+            className="w-100 bg-primary h-[50px] font-[400] text-[20px] rounded-lg text-white"
           >
             Download
           </button>
-          <button className="bg-[#E4E4E4] h-[50px] font-[400] text-[20px] rounded-lg text-[#4A4A4A]">
+          <button className="w-100 bg-[#E4E4E4] h-[50px] font-[400] text-[20px] rounded-lg text-[#4A4A4A]">
             Cancel
           </button>
         </div>
