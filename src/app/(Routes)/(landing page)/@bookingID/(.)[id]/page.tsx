@@ -72,7 +72,7 @@ function BookingDetails() {
         </div>
       }
     >
-      <div id="booking-details" className="flex flex-col gap-6">
+      <div id="booking-details" className="flex flex-col gap-6 max-h-[400px]">
         <div className="flex flex-row items-center justify-between">
           <h5 className="text-[20px] font-[400]">Booking ID</h5>
           <p className="text-[#333333] text-[20px] font-[600] text-right">
@@ -116,7 +116,7 @@ function BookingDetails() {
         <div className="flex flex-col items-center gap-4 w-[100%]">
           <button
             onClick={handleDownload}
-            className="w-100 bg-primary h-[50px] font-[400] text-[20px] rounded-lg text-white"
+            className="w-[100%] bg-primary h-[50px] font-[400] text-[20px] rounded-lg text-white"
           >
             Download
           </button>
