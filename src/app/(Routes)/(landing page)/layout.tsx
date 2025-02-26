@@ -4,17 +4,17 @@ import Header from "./_local_components/Header";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import Footer from "./_local_components/Footer";
-
+import { PaymentProvider } from "@/app/_global_components/Context/PaymentContext";
 gsap.registerPlugin(ScrollTrigger);
-
-type Prop = {
+type Props = {
   children: React.ReactNode;
+  booking: React.ReactNode;
+  bookingID: React.ReactNode;
 };
-
-function Layout({ children }: Prop) {
+function Layout({ children, booking, bookingID }: Props) {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const childrenRef = useRef<HTMLDivElement | null>(null);
-
+  console.log(booking);
   useLayoutEffect(() => {
     if (!headerRef.current || !childrenRef.current) return;
 
@@ -29,13 +29,21 @@ function Layout({ children }: Prop) {
   }, []);
 
   return (
-    <div className="font-roboto">
-      <div ref={headerRef}>
-        <Header />
+    <PaymentProvider>
+      <div className="font-roboto">
+        <div ref={headerRef}>
+          <Header />
+        </div>
+
+        <div ref={childrenRef}>
+          {booking}
+          {bookingID}
+          {children}
+        </div>
+
+        <Footer />
       </div>
-      <div ref={childrenRef}>{children}</div>
-      <Footer />
-    </div>
+    </PaymentProvider>
   );
 }
 

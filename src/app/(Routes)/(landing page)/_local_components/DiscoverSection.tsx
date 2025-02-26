@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
@@ -22,6 +22,7 @@ function DiscoverSection() {
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
             transition: { duration: 5, delay: 0.5 },
           }}
+          viewport={{ once: true }}
           className="relative row-span-2 w-50 h-100"
         >
           <Image
@@ -39,6 +40,7 @@ function DiscoverSection() {
             clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
             transition: { duration: 5, delay: 0.5 },
           }}
+          viewport={{ once: true }}
           className="relative w-50 h-50"
         >
           <Image
@@ -54,6 +56,7 @@ function DiscoverSection() {
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
             transition: { duration: 5, delay: 0.5 },
           }}
+          viewport={{ once: true }}
           className="relative w-50 h-50"
         >
           <Image
