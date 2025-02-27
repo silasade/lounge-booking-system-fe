@@ -46,7 +46,7 @@ function ApartmentList() {
   ];
 
   return (
-    <div className="flex flex-col p-5 md:p-[35px] md:p-[35px] lg:p-[65px] lg:p-[65px] gap-6">
+    <div className="flex flex-col p-5 pt-20 md:pt-0 md:p-[35px] md:p-[35px] lg:p-[65px] lg:p-[65px] gap-6">
       <div className="flex flex-col gap-2 md:gap-3 text-center">
         <h1 className="text-secondary text-[20px] md:text-[24px] lg:text-[32px] font-[700]">
           Find Your Perfect Stay

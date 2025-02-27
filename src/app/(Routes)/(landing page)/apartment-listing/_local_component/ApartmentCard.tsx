@@ -39,7 +39,7 @@ function ApartmentCard({
             className="object-cover rounded-lg"
           />
         </div>
-        <div className="h-50 w-50 relative">
+        <div className="h-50 w-50 relative col-span-2 sm:col-span-1">
           <Image
             src={sideImageOne}
             fill
@@ -47,7 +47,7 @@ function ApartmentCard({
             className="object-cover rounded-lg"
           />
         </div>
-        <div className="h-50 w-50 relative">
+        <div className="h-50 w-50 relative col-span-2 sm:col-span-1">
           <Image
             src={sideImageTwo}
             fill
@@ -69,26 +69,26 @@ function ApartmentCard({
             Overview
           </h3>
           <p>{overview}</p>
-          <div className="flex flex-row gap-5 items-center justify-center md:justify-normal">
-            <div className="flex flex-col gap-3 text-[14px] md:text-[16px] lg:text-[18px] items-center text-[#959595]">
+          <div className="flex flex-row gap-3 md:gap-5 items-center justify-center md:justify-normal">
+            <div className="flex flex-col gap-3 text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] items-center text-[#959595]">
               <Bed />
               <p className="font-[400]">
                 <span className="font-[500] text-black">{noOfBed}</span> bed
               </p>
             </div>
-            <div className="flex flex-col  gap-3 text-[14px] md:text-[16px] lg:text-[18px] items-center text-[#959595]">
+            <div className="flex flex-col  gap-3 text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] items-center text-[#959595]">
               <Bathroom />
               <p className="font-[400]">
                 <span className="font-[500] text-black">{noOfBathRoom}</span> bathroom
               </p>
             </div>
-            <div className="flex flex-col gap-3 text-[14px] md:text-[16px] lg:text-[18px] items-center text-[#959595]">
+            <div className="flex flex-col gap-3 text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] items-center text-[#959595]">
               <Television />
               <p className="font-[400]">
                 <span className="font-[500] text-black">{noOfTele}</span> television
               </p>
             </div>
-            <div className="flex flex-col gap-3 text-[14px] md:text-[16px] lg:text-[18px] items-center text-[#959595]">
+            <div className="flex flex-col gap-3 text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] items-center text-[#959595]">
               <Fan />
               <p className="font-[400]">
                 <span className="font-[500] text-black">{noOfAC}</span> air-conditioner
