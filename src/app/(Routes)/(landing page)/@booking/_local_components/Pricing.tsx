@@ -20,13 +20,13 @@ function Pricing() {
     },
   });
   return (
-    <div className="flex flex-col gap-6 p-4 border-b border-[#B3B3B3]">
+    <div className="flex flex-col gap-6 p-3 border-b border-[#B3B3B3]">
       <div className="flex flex-row justify-between">
-        <h3 className="text-[24px] font-[500]">Additional Add-ons</h3>
-        <h5 className="text-[22px] font-[500]">Price</h5>
+        <h3 className="text-[18px] md:text-[24px] font-[500]">Additional Add-ons</h3>
+        <h5 className="text-[16px] md:text-[22px] font-[500]">Price</h5>
       </div>
-      <div className="flex flex-row justify-between">
-        <h6 className="text-[20px] font-[400]">Non-alcoholic Drinks</h6>
+      <div className="flex flex-col sm:flex-row row-gap-2 justify-between sm:items-center">
+        <h6 className="text-[16px] md:text-[20px] font-[400]">Non-alcoholic Drinks</h6>
         <Sliders
           trackColor="#D4A373"
           handleColor="white"
@@ -36,8 +36,8 @@ function Pricing() {
           }}
         />
       </div>
-      <div className="flex flex-row justify-between">
-        <h6 className="text-[20px] font-[400]">Alcoholic Drinks</h6>
+      <div className="flex flex-col sm:flex-row row-gap-2 justify-between sm:items-center">
+        <h6 className="text-[16px] md:text-[20px] font-[400]">Alcoholic Drinks</h6>
         <Sliders
           trackColor="#D4A373"
           handleColor="white"
@@ -48,8 +48,8 @@ function Pricing() {
           }}
         />
       </div>
-      <div className="flex flex-row justify-between">
-        <h6 className="text-[20px] font-[400]">Snacks</h6>
+      <div className="w-full flex flex-col sm:flex-row row-gap-2 justify-between sm:items-center">
+        <h6 className="text-[16px] md:text-[20px] font-[400]">Snacks</h6>
         <Sliders
           trackColor="#D4A373"
           handleColor="white"

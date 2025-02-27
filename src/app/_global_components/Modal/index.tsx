@@ -10,7 +10,22 @@ type ModalProp = ModalProps & {
 
 function Modals({ children, open, handleCancel, ...rest }: ModalProp) {
   return (
-    <Modal open={open} onCancel={handleCancel} footer={null} {...rest}>
+    <Modal
+      open={open}
+      onCancel={handleCancel}
+      footer={null}
+      {...rest}
+      style={{
+        width: "auto",
+        minWidth: "fit-content",
+        maxWidth: "fit-content",
+      }}
+      styles={{
+        body: {
+          width: "fit-content",
+        },
+      }}
+    >
       {children}
     </Modal>
   );

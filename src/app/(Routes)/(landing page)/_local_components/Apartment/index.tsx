@@ -24,17 +24,17 @@ function ApartmentSection() {
     },
   ];
   return (
-    <div className="flex flex-col gap-8 p-20 pl-30 pr-30 border-b border-borderColor">
-      <div className="flex flex-col gap-4 text-center">
-        <h2 className="text-secondary text-[32px] font-[700]">
+    <div className="flex flex-col gap-8 p-5 md:p-20 md:pl-30 md:pr-30 border-b border-borderColor">
+      <div className="flex flex-col gap-2 md:gap-4 text-center">
+        <h2 className="text-secondary text-[20px] md:text-[24px] lg:text-[32px] font-[700]">
           Apartments
         </h2>
-        <p className="font-[400] text-[24px]">
+        <p className="font-[400] text-[18px] md:text-[20px] lg:text-[24px]">
           Elegance and Comfort Combined – Discover Your Ideal Home Away from
           Home
         </p>
       </div>
-      <div className="grid grid-cols-2 grid-row-2 gap-y-6 gap-x-6">
+      <div className="grid grid-cols-1 grid-row-1 md:grid-cols-2 md:grid-row-2 gap-y-6 gap-x-6">
         {cardContents.map((items, index) => {
           return (
             <div key={index}>

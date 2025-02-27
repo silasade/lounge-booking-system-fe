@@ -31,28 +31,31 @@ function Testimonial() {
     },
   ];
   return (
-    <div className="flex flex-col gap-8 p-20 pl-30 pr-30 border-b border-borderColor">
+    <div className="flex flex-col gap-8 p-5 p-5 md:p-10 md:pl-15 md:pr-15 lg:p-20 lg:pl-30 lg:pr-30 border-b border-borderColor">
       <div className="flex flex-col gap-4 text-center">
-        <h2 className="text-secondary text-[32px] font-[700]">
+        <h2 className="text-secondary text-[20px] md:text-[24px] lg:text-[32px] font-[700]">
           What Our Guests Say
         </h2>
-        <p className="font-[400] text-[24px]">
+        <p className="font-[400] text-[18px] md:text-[20px] lg:text-[24px]">
           Discover heartfelt stories and glowing reviews from guests who’ve
           experienced exceptional comfort and top-notch service.
         </p>
       </div>
-      <div className="flex flex-row gap-6">
-
-     
-      {
-        testimonials.map((items,index)=>{
-            return(
-                <div key={index}>
-                <Card message={items.message} name={items.name} profile={items.profile} title={items.title}/>
-                </div>
-            )
-        })
-      }\ </div>
+      <div className="flex flex-col md:flex-row gap-3 md:gap-6">
+        {testimonials.map((items, index) => {
+          return (
+            <div key={index}>
+              <Card
+                message={items.message}
+                name={items.name}
+                profile={items.profile}
+                title={items.title}
+              />
+            </div>
+          );
+        })}
+        \{" "}
+      </div>
     </div>
   );
 }

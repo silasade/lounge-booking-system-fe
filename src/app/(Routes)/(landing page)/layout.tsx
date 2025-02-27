@@ -34,7 +34,7 @@ function Layout({ children, booking }: Props) {
           <Header />
         </div>
 
-        <div ref={childrenRef}>
+        <div ref={childrenRef} className="z-5">
           {booking}
           {children}
         </div>

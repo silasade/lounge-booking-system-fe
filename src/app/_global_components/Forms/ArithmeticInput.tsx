@@ -24,17 +24,17 @@ function ArithmeticInput({ handleNumber }: Input) {
     }
   }, [handleNumber, number]);
   return (
-    <div className="flex flex-row justify-between p-1 items-center h-fit w-64 border border-[#D9D9D9] rounded-full">
+    <div className="flex flex-row justify-between p-1 items-center h-fit w-full border border-[#D9D9D9] rounded-full">
       <button
         onClick={decrement}
-        className="w-[40px] h-[40px] text-[20px] rounded-[100%] bg-secondary text-white"
+        className="w-[30px] h-[30px] md:w-[50px] md:h-[50px] text-[20px] rounded-[100%] bg-secondary text-white"
       >
         -
       </button>
-      <p className="text-[24px] font-[500]">{formattedNumber}</p>
+      <p className="text-[16px] md:text-[24px] font-[500]">{formattedNumber}</p>
       <button
         onClick={increment}
-        className="w-[40px] h-[40px] text-[20px] rounded-full bg-secondary text-white"
+        className="w-[30px] h-[30px] md:w-[50px] md:h-[50px] text-[20px]  text-[20px] rounded-full bg-secondary text-white"
       >
         +
       </button>

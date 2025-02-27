@@ -18,7 +18,10 @@ type DetailsType = {
   totalPrice: string;
   status: string;
 };
-function BookingForm() {
+type prop = {
+  handleMenu?: () => void;
+};
+function BookingForm({ handleMenu }: prop) {
   const [open, setOpen] = useState<boolean>(false);
   const [id, setID] = useState<string>("");
 
@@ -30,6 +33,10 @@ function BookingForm() {
   const onSubmit = (data: Input) => {
     setID(data.bookingId);
     setOpen(true);
+    if (handleMenu) {
+      handleMenu();
+    }
+    
   };
 
   const bookingDetails: DetailsType = {
@@ -65,7 +72,6 @@ function BookingForm() {
         centered
         open={open}
         handleCancel={handleClose}
-        width={550}
         title={
           <div className="w-100 border-b border-[#B3B3B3] pb-2">
             <h4 className="text-center text-[27px] font-[700] text-secondary">
@@ -76,62 +82,76 @@ function BookingForm() {
       >
         <div
           id="booking-details"
-          className="flex flex-col gap-6 max-h-[400px] overflow-auto p-4"
+          className="flex flex-col gap-6 max-h-auto md:max-h-[400px] w-96 md:w-[550px] overflow-auto p-4"
         >
           <div className="flex flex-row items-center justify-between">
-            <h5 className="text-[20px] font-[400]">Booking ID</h5>
-            <p className="text-[#333333] text-[20px] font-[600] text-right">
+            <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
+              Booking ID
+            </h5>
+            <p className="text-[#333333] text-[14px] sm:text-[16px] md:text-[20px] font-[600] text-right">
               {bookingDetails.bookingId}
             </p>
           </div>
           <div className="flex flex-row items-center justify-between">
-            <h5 className="text-[20px] font-[400]">Name</h5>
-            <p className="text-[#333333] text-[20px] font-[600] text-right">
+            <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
+              Name
+            </h5>
+            <p className="text-[#333333] text-[14px] sm:text-[16px] md:text-[20px] font-[600] text-right">
               {bookingDetails.name}
             </p>
           </div>
           <div className="flex flex-row items-center justify-between">
-            <h5 className="text-[20px] font-[400]">Check-in Date</h5>
-            <p className="text-[#333333] text-[20px] font-[600] text-right">
+            <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
+              Check-in Date
+            </h5>
+            <p className="text-[#333333] text-[14px] sm:text-[16px] md:text-[20px] font-[600] text-right">
               {bookingDetails.checkInDate}
             </p>
           </div>
           <div className="flex flex-row items-center justify-between">
-            <h5 className="text-[20px] font-[400]">Check-out Date</h5>
-            <p className="text-[#333333] text-[20px] font-[600] text-right">
+            <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
+              Check-out Date
+            </h5>
+            <p className="text-[#333333] text-[14px] sm:text-[16px] md:text-[20px] font-[600] text-right">
               {bookingDetails.checkOutDate}
             </p>
           </div>
           <div className="flex flex-row items-start justify-between">
-            <h5 className="text-[20px] font-[400]">Amenities</h5>
-            <span className="flex flex-col gap-2 text-[#333333] text-[20px] font-[600] text-right">
+            <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
+              Amenities
+            </h5>
+            <span className="flex flex-col gap-2 text-[#333333] text-[14px] sm:text-[16px] md:text-[20px] font-[600] text-right">
               {bookingDetails.amenities.map((item, index) => (
                 <p key={index}>{item}</p>
               ))}
             </span>
           </div>
           <div className="flex flex-row items-center justify-between">
-            <h5 className="text-[20px] font-[400]">Total Price</h5>
-            <p className="text-[#333333] text-[20px] font-[600] text-right">
+            <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
+              Total Price
+            </h5>
+            <p className="text-[#333333] text-[14px] sm:text-[16px] md:text-[20px] font-[600] text-right">
               {bookingDetails.totalPrice}
             </p>
           </div>
           <div className="flex flex-row items-center justify-between">
-            <h5 className="text-[20px] font-[400]">Status</h5>
-            <p className="text-[#333333] text-[20px] font-[600] text-right">
+            <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
+              Status
+            </h5>
+            <p className="text-[#333333] text-[14px] sm:text-[16px] md:text-[20px] font-[600] text-right">
               {bookingDetails.status}
             </p>
           </div>
           <div className="flex flex-col items-center gap-4 w-[100%]">
             <button
               onClick={handleDownload}
-              className="w-[100%] bg-primary h-[50px] font-[400] text-[20px] rounded-lg text-white"
+              className="w-[100%] bg-primary h-[40px] md:h-[50px] font-[400] text-[14px] sm:text-[16px] md:text-[20px] rounded-lg text-white"
             >
               Download
             </button>
             <button
               onClick={handleClose}
-              className="w-[100%] bg-[#E4E4E4] h-[50px] font-[400] text-[20px] rounded-lg text-[#4A4A4A]"
+              className="w-[100%] bg-[#E4E4E4] h-[40px] md:h-[50px] font-[400] text-[14px] sm:text-[16px] md:text-[20px] rounded-lg text-[#4A4A4A]"
             >
               Cancel
             </button>
@@ -139,7 +159,7 @@ function BookingForm() {
         </div>
       </Modals>
       <form
-        className="flex flex-col gap-2 w-64 bg-[#0000002B] rounded-lg p-4"
+        className="flex flex-col gap-2 w-full md:w-64 bg-[#0000002B] rounded-lg p-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <input

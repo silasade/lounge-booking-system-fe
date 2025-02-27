@@ -29,7 +29,7 @@ const Sliders: React.FC<SlidersProps> = ({
   };
 
   return (
-    <div className="w-2/5">
+    <div className="w-full sm:w-2/5">
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
         <p>
           From &#8358; <strong>{range[0]}</strong>

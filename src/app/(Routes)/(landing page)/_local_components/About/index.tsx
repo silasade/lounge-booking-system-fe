@@ -33,11 +33,11 @@ function AboutSection() {
     },
   ];
   return (
-    <div className="flex flex-col gap-8 p-20 pl-30 pr-30 border-b border-borderColor">
-      <h2 className="text-secondary text-[32px] font-[700] text-center">
+    <div className="flex flex-col gap-8 p-5 md:p-10 lg:p-20 lg:pl-30 lg:pr-30 border-b border-borderColor">
+      <h2 className="text-secondary text-[20px] md:text-[24px] lg:text-[32px] font-[700] text-center">
         Why Choose Nana Lounge?
       </h2>
-      <div className="grid grid-cols-2 grid-row-2 gap-y-4 gap-x-4">
+      <div className="grid md:grid-cols-2 md:grid-row-2 gap-y-4 gap-x-4">
         {cardContents.map((items, index) => {
           return (
             <div key={index}>

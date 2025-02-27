@@ -31,17 +31,17 @@ function PaymentForm() {
     }
   };
   return (
-    <div className="flex flex-col justify-center items-center gap-8 p-20 pl-30 pr-30">
+    <div className="flex flex-col justify-center items-center gap-8 p-3 w-full md:p-20 md:pl-30 md:pr-30">
       <div className="text-center">
-        <h2 className="text-[24px] font-[700] ">Payment</h2>
-        <h5 className="text-[20px]">Enter your details</h5>
+        <h2 className="text-[18px] md:text-[24px] font-[700] ">Payment</h2>
+        <h5 className="text-[16px] md:text-[20px]">Enter your details</h5>
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4 w-4/5"
+        className="flex flex-col gap-2 md:gap-4 w-full md:w-4/5"
       >
         <div className="flex flex-col gap-2 w-full">
-          <h5 className="text-[20px] font-[400]">Card number</h5>
+          <h5 className="text-[16px] md:text-[20px] font-[400]">Card number</h5>
           <Controller
             name="cardNo"
             control={control}
@@ -49,7 +49,7 @@ function PaymentForm() {
               <Input
                 {...field}
                 placeholder="1234 1234 1234 1234"
-                className="w-100 h-[50px] p-3 border-heroText border rounded-lg"
+                className="w-100 h-[40px] md:h-[50px] p-3 border-heroText border rounded-lg"
                 onChange={(event) =>
                   setPaymentDetails((prev) => ({
                     ...prev,
@@ -64,7 +64,7 @@ function PaymentForm() {
                       { src: "/imgs/Amex.webp", alt: "Amex" },
                       { src: "/imgs/DIscover.webp", alt: "Discover" },
                     ].map((image, index) => (
-                      <div key={index} className="relative w-[24px] h-[15px]">
+                      <div key={index} className="relative w-[18px] md:w-[24px] h-[10px] md:h-[15px]">
                         <Image
                           src={image.src}
                           alt={image.alt}
@@ -83,15 +83,15 @@ function PaymentForm() {
             <Text type="danger">{errors.cardNo.message}</Text>
           )}
         </div>
-        <div className="flex flex-row gap-2 w-100 items-center">
+        <div className="flex flex-col md:flex-row gap-2 w-100 items-center">
           <div className="flex flex-col gap-2 w-full">
-            <h5 className="text-[20px] font-[400]">Expiry date</h5>
+            <h5 className="text-[16px] md:text-[20px] font-[400]">Expiry date</h5>
             <Controller
               name="expiry"
               control={control}
               render={({ field: { onChange, value } }) => (
                 <DatePicker
-                  className="w-50 h-[50px] p-3 border-heroText border rounded-lg"
+                  className="w-50 h-[40px] md:h-[50px] p-3 border-heroText border rounded-lg"
                   picker="month"
                   placeholder="MM/YY"
                   value={value ? moment(value, "MM/YY") : null} // Convert to Moment object
@@ -116,12 +116,12 @@ function PaymentForm() {
             )}
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <h5 className="text-[20px] font-[400]">CVV</h5>
+            <h5 className="text-[16px] md:text-[20px] font-[400]">CVV</h5>
             <input
               type="number"
               placeholder="cvv"
               {...register("cvv")}
-              className="w-50 h-[50px] p-3 border-heroText border rounded-lg"
+              className="w-50 h-[40px] md:h-[50px] p-3 border-heroText border rounded-lg"
               onChange={(event) =>
                 setPaymentDetails((prev) => ({
                   ...prev,
@@ -134,16 +134,16 @@ function PaymentForm() {
             )}
           </div>
         </div>
-        <div className="flex flex-row gap-2 w-100 items-center">
+        <div className="flex flex-col md:flex-row gap-2 w-100 items-center">
           <div className="flex flex-col gap-2 w-full">
-            <h5 className="text-[20px] font-[400]">Country</h5>
+            <h5 className="text-[16px] md:text-[20px] font-[400]">Country</h5>
             <Controller
               name="country"
               control={control}
               defaultValue="Nigeria" // Set default value here
               render={({ field: { value, onChange } }) => (
                 <CountryDropdown
-                  className="w-[100%] h-[50px] p-3 border-heroText border rounded-lg"
+                  className="w-[100%] h-[40px] md:h-[50px] p-3 border-heroText border rounded-lg"
                   value={value || ""} // Ensures value is not undefined
                   onChange={(selectedValue) => {
                     onChange(selectedValue); // Update form state
@@ -161,12 +161,12 @@ function PaymentForm() {
             )}
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <h5 className="text-[20px] font-[400]">Postal code</h5>
+            <h5 className="text-[16px] md:text-[20px] font-[400]">Postal code</h5>
             <input
               type="number"
               placeholder="90210"
               {...register("postalCode")}
-              className="w-50 h-[50px] p-3 border-heroText border rounded-lg"
+              className="w-50 h-[40px] md:h-[50px] p-3 border-heroText border rounded-lg"
               onChange={(event) =>
                 setPaymentDetails((prev) => ({
                   ...prev,
