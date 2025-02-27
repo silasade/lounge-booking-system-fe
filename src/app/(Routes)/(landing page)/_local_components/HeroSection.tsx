@@ -22,7 +22,7 @@ function HeroSection() {
           >
             Book Pool Service
           </button>
-          <button className="bg-primary text-[16px] md:text-[18px] lg:text-[20px] text-white rounded-md w-full md:w-64 h-[46px] md:h-[50px] lg:h-[56px]">
+          <button onClick={()=>router.push("/apartment-listing")} className="bg-primary text-[16px] md:text-[18px] lg:text-[20px] text-white rounded-md w-full md:w-64 h-[46px] md:h-[50px] lg:h-[56px]">
             Book Apartments
           </button>
         </div>

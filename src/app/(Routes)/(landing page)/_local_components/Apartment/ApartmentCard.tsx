@@ -17,10 +17,10 @@ function ApartmentCard({ src, title, description, price }: Prop) {
       </div>
       <h5 className="font-[600] text-[18px] md:text-[20px] lg:text-[22px] text-secondary">{title}</h5>
       <h5 className="font-[300] text-[16px] lg:text-[18px] leading-[33px]">{description}</h5>
-      <p className="font-[300] text-[16px] md:text-[20px] leading-[33px] font-[700] flex flex-row gap-1 items-center">
+      <p className="font-[300] text-[16px] md:text-[20px] leading-[33px] font-[700]">
         {price}
-        <span className="text-[14px] lg:text-[16px] font-[400]">per night</span>
-        <span className="italic text-[14px] lg:text-[16px] font-[400]">
+        <span className="text-[14px] lg:text-[16px] font-[400]">&nbsp;per night</span>
+        <span className="italic text-[14px] lg:text-[16px] font-[400] text-[#4A4A4A]">&nbsp;
           (amenities priced separately)
         </span>
       </p>

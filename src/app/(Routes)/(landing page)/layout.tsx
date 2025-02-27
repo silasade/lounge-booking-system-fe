@@ -29,7 +29,7 @@ function Layout({ children, booking }: Props) {
 
   return (
     <PaymentProvider>
-      <div className="font-roboto">
+      <div className="font-roboto flex flex-col">
         <div ref={headerRef}>
           <Header />
         </div>
