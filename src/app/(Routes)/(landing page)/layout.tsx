@@ -21,7 +21,7 @@ function Layout({ children, booking }: Props) {
       backgroundColor: "black",
       scrollTrigger: {
         trigger: childrenRef.current,
-        start: "30% 30%",
+        start: "5% 10%",
         scrub: true,
       },
     });

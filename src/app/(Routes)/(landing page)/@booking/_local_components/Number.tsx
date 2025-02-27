@@ -37,7 +37,7 @@ function Number() {
   );
 
   return (
-    <div className="flex flex-col gap-6 border-b border-[#B3B3B3] p-3">
+    <div className="flex flex-col gap-6 border-b border-[#B3B3B3] pt-3 pb-3">
       <div className="flex flex-col sm:flex-row row-gap-2 justify-between sm:items-center">
         <div className="flex flex-col gap-3">
           <h5 className="text-[16px] md:text-[20px] font-[500]">

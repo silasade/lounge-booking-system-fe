@@ -24,7 +24,7 @@ function ApartmentSection() {
     },
   ];
   return (
-    <div className="flex flex-col gap-8 p-5 md:p-20 md:pl-30 md:pr-30 border-b border-borderColor">
+    <div className="flex flex-col gap-8 p-5 md:p-20 md:pb-10 md:pl-30 md:pr-30 border-b border-borderColor">
       <div className="flex flex-col gap-2 md:gap-4 text-center">
         <h2 className="text-secondary text-[20px] md:text-[24px] lg:text-[32px] font-[700]">
           Apartments

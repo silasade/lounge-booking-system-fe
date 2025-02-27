@@ -10,7 +10,7 @@ function ApartmentCard({ src, title, description, price }: Prop) {
   return (
     <div className="h-[640px] w-full md:w-50 flex flex-col gap-4">
       <div
-        className="relative max-h-3/5 min-h-3/5 w-full rounded-lg
+        className="relative max-h-3/5 min-h-3/5 h-3/5 w-full rounded-lg
 "
       >
         <Image src={src} alt={title} fill className="object-cover rounded-lg" />

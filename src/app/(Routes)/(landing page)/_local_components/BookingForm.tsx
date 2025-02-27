@@ -82,7 +82,7 @@ function BookingForm({ handleMenu }: prop) {
       >
         <div
           id="booking-details"
-          className="flex flex-col gap-6 max-h-auto md:max-h-[400px] w-96 md:w-[550px] overflow-auto p-4"
+          className="flex flex-col gap-6 max-h-[100%] md:max-h-[400px] w-96 md:w-[550px] overflow-auto p-0 md:p-4"
         >
           <div className="flex flex-row items-center justify-between">
             <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">

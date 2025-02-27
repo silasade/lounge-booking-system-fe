@@ -46,7 +46,7 @@ function CreatePost() {
         </div>
       }
     >
-      <div className="max-h-auto md:max-h-[400px] overflow-auto p-[5px] md:p-[10px] w-[97%] md:w-[800px]">
+      <div className="max-h-[100%] md:max-h-[400px] overflow-auto p-[0px] md:p-[10px] w-[97%] md:w-[800px]">
         <Number />
         <Pricing />
         <div className="flex flex-col gap-4 pt-[10px] pb-[10px] md:pt-[20px] md:pb-[20px] border-b border-[#B3B3B3]">

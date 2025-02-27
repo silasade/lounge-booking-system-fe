@@ -21,7 +21,7 @@ function ContactInfo() {
     }
   };
   return (
-    <div className="flex flex-col justify-center items-center gap-8 p-3 w-100 md:p-20 md:pl-30 md:pr-30 border-b  border-borderColor">
+    <div className="flex flex-col justify-center items-center gap-8 pt-3 pb-3 w-100 md:p-20 md:pl-30 md:pr-30 border-b  border-borderColor">
       <div className="text-center">
         <h2 className="text-[18px] md:text-[24px] font-[700] ">Contact Us</h2>
         <h5 className="text-[16px] md:text-[20px]">Enter your details</h5>

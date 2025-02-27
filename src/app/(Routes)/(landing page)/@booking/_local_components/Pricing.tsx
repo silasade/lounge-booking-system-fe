@@ -20,7 +20,7 @@ function Pricing() {
     },
   });
   return (
-    <div className="flex flex-col gap-6 p-3 border-b border-[#B3B3B3]">
+    <div className="flex flex-col gap-6 pt-3 pb-3 border-b border-[#B3B3B3]">
       <div className="flex flex-row justify-between">
         <h3 className="text-[18px] md:text-[24px] font-[500]">Additional Add-ons</h3>
         <h5 className="text-[16px] md:text-[22px] font-[500]">Price</h5>
