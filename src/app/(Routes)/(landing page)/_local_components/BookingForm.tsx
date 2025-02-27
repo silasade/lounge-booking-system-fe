@@ -67,14 +67,16 @@ function BookingForm({ handleMenu }: prop) {
     pdf.save("Nana-Lounge-Booking-Details.pdf");
   };
   return (
-    <>
+    <div>
       <Modals
         centered
         open={open}
         handleCancel={handleClose}
+        getContainer={false} 
+
         title={
           <div className="w-100 border-b border-[#B3B3B3] pb-2">
-            <h4 className="text-center text-[27px] font-[700] text-secondary">
+            <h4 className="text-center text-[20px] md:text-[27px] font-[700] text-secondary">
               Booking Details
             </h4>
           </div>
@@ -82,9 +84,9 @@ function BookingForm({ handleMenu }: prop) {
       >
         <div
           id="booking-details"
-          className="flex flex-col gap-6 max-h-[100%] md:max-h-[400px] w-96 md:w-[550px] overflow-auto p-0 md:p-4"
+          className="flex flex-col gap-6 max-h-[100%] md:max-h-[400px] max-w-[100%] min-w-[100%] md:min-w-[1] md:w-[550px] overflow-y-auto p-[0px] md:p-4"
         >
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center justify-between w-full">
             <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
               Booking ID
             </h5>
@@ -92,7 +94,7 @@ function BookingForm({ handleMenu }: prop) {
               {bookingDetails.bookingId}
             </p>
           </div>
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center justify-between  w-full">
             <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
               Name
             </h5>
@@ -100,7 +102,7 @@ function BookingForm({ handleMenu }: prop) {
               {bookingDetails.name}
             </p>
           </div>
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center justify-between  w-full">
             <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
               Check-in Date
             </h5>
@@ -108,7 +110,7 @@ function BookingForm({ handleMenu }: prop) {
               {bookingDetails.checkInDate}
             </p>
           </div>
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center justify-between  w-full">
             <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
               Check-out Date
             </h5>
@@ -116,7 +118,7 @@ function BookingForm({ handleMenu }: prop) {
               {bookingDetails.checkOutDate}
             </p>
           </div>
-          <div className="flex flex-row items-start justify-between">
+          <div className="flex flex-row items-start justify-between  w-full">
             <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
               Amenities
             </h5>
@@ -126,7 +128,7 @@ function BookingForm({ handleMenu }: prop) {
               ))}
             </span>
           </div>
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center justify-between  w-full">
             <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
               Total Price
             </h5>
@@ -134,7 +136,7 @@ function BookingForm({ handleMenu }: prop) {
               {bookingDetails.totalPrice}
             </p>
           </div>
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center justify-between  w-full">
             <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
               Status
             </h5>
@@ -142,7 +144,7 @@ function BookingForm({ handleMenu }: prop) {
               {bookingDetails.status}
             </p>
           </div>
-          <div className="flex flex-col items-center gap-4 w-[100%]">
+          <div className="flex flex-col items-center gap-4  w-full">
             <button
               onClick={handleDownload}
               className="w-[100%] bg-primary h-[40px] md:h-[50px] font-[400] text-[14px] sm:text-[16px] md:text-[20px] rounded-lg text-white"
@@ -177,7 +179,7 @@ function BookingForm({ handleMenu }: prop) {
           View Booking
         </Button>
       </form>
-    </>
+    </div>
   );
 }
 

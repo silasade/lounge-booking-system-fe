@@ -5,8 +5,8 @@ import React from "react";
 function HeroSection() {
   const router = useRouter();
   return (
-    <div className="grid -z-10 place-items-center w-full h-screen bg-[url('/imgs/heroBg.webp')] bg-center bg-cover bg-no-repeat font-montserrat text-center">
-      <div className="absolute bg-heroBg w-full h-full top-0 left-0"></div>
+    <div className="relative grid z-30 place-items-center w-full h-screen bg-[url('/imgs/mobileHeroBg.webp')] md:bg-[url('/imgs/heroBg.webp')] bg-center bg-cover bg-no-repeat font-montserrat text-center">
+      <div className="absolute  bg-heroBg w-full h-full top-0 left-0"></div>
       <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 w-full px-4 md:px-0 md:w-3/4 lg:w-1/2 z-10">
         <h1 className="text-white text-[24px] md:text-[36px] lg:text-[48px] font-[600] leading-snug">
           Plan Your Stay, Stress-Free

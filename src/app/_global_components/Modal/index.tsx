@@ -15,10 +15,15 @@ function Modals({ children, open, handleCancel, ...rest }: ModalProp) {
       onCancel={handleCancel}
       footer={null}
       {...rest}
+      {...rest}
+      centered
+      getContainer={false}
       style={{
         width: "auto",
         minWidth: "fit-content",
         maxWidth: "fit-content",
+        zIndex: 10000
+
       }}
       styles={{
         body: {
