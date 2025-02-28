@@ -23,10 +23,10 @@ function CreatePost() {
   }, [router]);
 
   useEffect(() => {
-    if (pathname === "/") {
-      return setOpen(false);
+    if (pathname === "/book-pool") {
+      return setOpen(true);
     }
-    setOpen(true);
+    setOpen(false);
   }, [pathname]);
   const onSubmit = () => {
     handleSubmit(paymentDetails);

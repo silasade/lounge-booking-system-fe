@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import Footer from "./_local_components/Footer";
 import { PaymentProvider } from "@/app/_global_components/Context/PaymentContext";
+import ApartmentBookingProvider from "@/app/_global_components/Context/ApartmentBookingContext";
 gsap.registerPlugin(ScrollTrigger);
 type Props = {
   children: React.ReactNode;
@@ -21,7 +22,7 @@ function Layout({ children, booking }: Props) {
       backgroundColor: "black",
       scrollTrigger: {
         trigger: childrenRef.current,
-        start: "5% 10%",
+        start: "5% top",
         scrub: true,
       },
     });
@@ -29,18 +30,20 @@ function Layout({ children, booking }: Props) {
 
   return (
     <PaymentProvider>
-      <div className="font-roboto flex flex-col">
-        <div ref={headerRef}>
-          <Header />
-        </div>
+      <ApartmentBookingProvider>
+        <div className="font-roboto flex flex-col">
+          <div ref={headerRef}>
+            <Header />
+          </div>
 
-        <div ref={childrenRef}>
-          {booking}
-          {children}
-        </div>
+          <div ref={childrenRef}>
+            {booking}
+            {children}
+          </div>
 
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </ApartmentBookingProvider>
     </PaymentProvider>
   );
 }

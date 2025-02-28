@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 type Input = {
   handleNumber: (number: number) => void;
+  Squared?: boolean;
+  text?: string;
 };
-function ArithmeticInput({ handleNumber }: Input) {
+function ArithmeticInput({ handleNumber, Squared, text }: Input) {
   // Start at 1 to ensure it doesn't go below 1.
   const [number, setNumber] = useState<number>(1);
 
@@ -24,17 +26,29 @@ function ArithmeticInput({ handleNumber }: Input) {
     }
   }, [handleNumber, number]);
   return (
-    <div className="flex flex-row justify-between p-1 items-center h-fit w-full border border-[#D9D9D9] rounded-full">
+    <div
+      className={`flex flex-row justify-between ${
+        Squared ? "p-0" : "p-1"
+      } items-center h-fit w-full border border-[#D9D9D9] ${
+        Squared ? "" : "rounded-full"
+      }`}
+    >
       <button
         onClick={decrement}
-        className="w-[30px] h-[30px] md:w-[50px] md:h-[50px] text-[20px] rounded-[100%] bg-secondary text-white"
+        className={`w-[30px] h-[30px] md:w-[50px] md:h-[50px] text-[20px] ${
+          Squared ? "bg-[#E74C3C] rounded-sm" : "rounded-[100%] bg-secondary"
+        } text-white`}
       >
         -
       </button>
-      <p className="text-[16px] md:text-[24px] font-[500]">{formattedNumber}</p>
+      <p className="text-[16px] md:text-[22px] font-[500] text-[#616161]">
+        {formattedNumber} {text && text}
+      </p>
       <button
         onClick={increment}
-        className="w-[30px] h-[30px] md:w-[50px] md:h-[50px] text-[20px]  text-[20px] rounded-full bg-secondary text-white"
+        className={`w-[30px] h-[30px] md:w-[50px] md:h-[50px] text-[20px] ${
+          Squared ? "bg-[#1ABC9C] rounded-sm" : "rounded-[100%] bg-secondary"
+        } text-white`}
       >
         +
       </button>

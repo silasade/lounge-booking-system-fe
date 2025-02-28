@@ -72,7 +72,6 @@ function BookingForm({ handleMenu }: prop) {
         centered
         open={open}
         handleCancel={handleClose}
-        getContainer={false} 
 
         title={
           <div className="w-100 border-b border-[#B3B3B3] pb-2">

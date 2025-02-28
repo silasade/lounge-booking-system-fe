@@ -19,7 +19,9 @@ export const metadata: Metadata = {
   description:
     "Indulge in refined apartments or unwind with our exclusive pool services – tailored to your needs",
 };
-
+export const viewport = {
+  themeColor: "#ffffff", // Use a valid hex color (e.g., white)
+};
 export default function RootLayout({
   children,
 }: Readonly<{

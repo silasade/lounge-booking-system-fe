@@ -14,7 +14,7 @@ function Header() {
 
   return (
     <header
-      className={`overflow-hidden z-40 w-full fixed top-0 font-roboto text-secondary flex flex-col md:flex-row items-start md:items-center md:justify-center pl-5 md:pl-0 md:p-0 transition-all duration-500 ease-in-out ${
+      className={`overflow-hidden backdrop-blur-sm z-40 w-full fixed top-0 font-roboto text-secondary flex flex-col md:flex-row items-start md:items-center md:justify-center pl-5 md:pl-0 md:p-0 transition-all duration-500 ease-in-out ${
         openMenu ? "h-[30vh] bg-[#000000]" : 'h-[45px] bg-inherit'
       }`}
     >

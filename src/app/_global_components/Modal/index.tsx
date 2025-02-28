@@ -15,9 +15,7 @@ function Modals({ children, open, handleCancel, ...rest }: ModalProp) {
       onCancel={handleCancel}
       footer={null}
       {...rest}
-      {...rest}
       centered
-      getContainer={false}
       style={{
         width: "auto",
         minWidth: "fit-content",
