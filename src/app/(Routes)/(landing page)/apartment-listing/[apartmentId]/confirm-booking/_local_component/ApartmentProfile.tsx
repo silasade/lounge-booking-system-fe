@@ -41,27 +41,27 @@ function ApartmentProfile({
           defaultValue={rate}
         />
         <div className="flex flex-row gap-3 md:gap-5 items-center">
-          <div className="flex flex-row gap-2 text-[12px] items-center text-[#959595]">
+          <div className="flex flex-col sm:flex-row gap-2 text-[12px] items-center text-[#959595]">
             <Bed />
             <p className="font-[400]">
               <span className="font-[500] text-black">{noOfBed}</span> bed
             </p>
           </div>
-          <div className="flex flex-row  gap-2 text-[12px] items-center text-[#959595]">
+          <div className="flex flex-col sm:flex-row  gap-2 text-[12px] items-center text-[#959595]">
             <Bathroom />
             <p className="font-[400]">
               <span className="font-[500] text-black">{noOfBathRoom}</span>{" "}
               bathroom
             </p>
           </div>
-          <div className="flex flex-row gap-2 text-[12px] items-center text-[#959595]">
+          <div className="flex flex-col sm:flex-row gap-2 text-[12px] items-center text-[#959595]">
             <Television />
             <p className="font-[400]">
               <span className="font-[500] text-black">{noOfTele}</span>{" "}
               television
             </p>
           </div>
-          <div className="flex flex-row gap-2 text-[12px] items-center text-[#959595]">
+          <div className="flex flex-col sm:flex-row gap-2 text-[12px] items-center text-[#959595]">
             <Fan />
             <p className="font-[400]">
               <span className="font-[500] text-black">{noOfAC}</span>{" "}

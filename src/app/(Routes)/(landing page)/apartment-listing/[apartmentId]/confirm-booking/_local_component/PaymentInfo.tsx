@@ -57,7 +57,7 @@ function PaymentInfo() {
               <Text type="danger">Please enter the name on the card</Text>
             )}
           </div>
-          <div className="flex flex-col md:flex-row gap-2 w-full">
+          <div className="flex flex-col gap-2 w-full">
             <h5 className="text-[14px] md:text-[16px] font-[400]">
               Credit/Debit Card Number
             </h5>

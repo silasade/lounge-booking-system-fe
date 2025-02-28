@@ -34,7 +34,7 @@ function ConfirmBooking(props: { params: Params }) {
         Confirm Booking
       </h2>
 
-      <div className="w-full flex flex-col md:flex-row gap-8">
+      <div className="w-full flex flex-col-reverse md:flex-row gap-8">
         <div className="flex flex-col gap-6 w-full md:w-2/4 lg:w-3/5">
           <CustomerDetails />
           <PaymentInfo />
