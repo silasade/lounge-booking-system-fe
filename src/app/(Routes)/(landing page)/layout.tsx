@@ -6,6 +6,7 @@ import gsap from "gsap";
 import Footer from "./_local_components/Footer";
 import { PaymentProvider } from "@/app/_global_components/Context/PaymentContext";
 import ApartmentBookingProvider from "@/app/_global_components/Context/ApartmentBookingContext";
+import ConfirmBookingProvider from "@/app/_global_components/Context/ConfirmBookingContext";
 gsap.registerPlugin(ScrollTrigger);
 type Props = {
   children: React.ReactNode;
@@ -31,18 +32,20 @@ function Layout({ children, booking }: Props) {
   return (
     <PaymentProvider>
       <ApartmentBookingProvider>
-        <div className="font-roboto flex flex-col">
-          <div ref={headerRef}>
-            <Header />
-          </div>
+        <ConfirmBookingProvider>
+          <div className="font-roboto flex flex-col">
+            <div ref={headerRef}>
+              <Header />
+            </div>
 
-          <div ref={childrenRef}>
-            {booking}
-            {children}
-          </div>
+            <div ref={childrenRef}>
+              {booking}
+              {children}
+            </div>
 
-          <Footer />
-        </div>
+            <Footer />
+          </div>
+        </ConfirmBookingProvider>
       </ApartmentBookingProvider>
     </PaymentProvider>
   );

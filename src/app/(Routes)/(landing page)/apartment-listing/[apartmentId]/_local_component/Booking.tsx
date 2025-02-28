@@ -1,20 +1,26 @@
+"use client";
 import ArithmeticInput from "@/app/_global_components/Forms/ArithmeticInput";
 import React, { useCallback, useEffect, useState } from "react";
 import { DatePicker } from "antd";
 const { RangePicker } = DatePicker;
 import dayjs, { Dayjs } from "dayjs";
 import { useApartmentContext } from "@/app/_global_components/Context/ApartmentBookingContext";
+import { useRouter } from "next/navigation";
 dayjs().format();
 type Prop = {
   price: number;
+  id: string;
 };
-function Booking({ price }: Prop) {
+function Booking({ price, id }: Prop) {
+  const router = useRouter();
   const { apartmentDetails, setApartmentDetails } = useApartmentContext();
   const [number, setNumber] = useState({
     noOfNight: 1,
   });
   const [noShowCharges, setNoShowCharges] = useState<number>(0);
-  const [dateRange, setDateRange] = useState("");
+  const [checkOutDate, setCheckOutDate] = useState("");
+  const [checkInDate, setCheckInDate] = useState("");
+
   const [total, setTotal] = useState<number>(0);
   const [rate, setRate] = useState<number>(price);
   const handleNights = useCallback(
@@ -27,22 +33,34 @@ function Booking({ price }: Prop) {
 
   const handleDateChange = (dates: [Dayjs | null, Dayjs | null] | null) => {
     if (dates && dates[0] && dates[1]) {
-      const formattedRange = `${dayjs(dates[0]).format("DD MMM")} - ${dayjs(
-        dates[1]
-      ).format("DD MMM")}`;
-      setDateRange(formattedRange);
+      setCheckInDate(dayjs(dates[0]).format("DD MMM YY"));
+      setCheckOutDate(dayjs(dates[0]).format("DD MMM YY"));
     } else {
-      setDateRange("");
+      setCheckInDate("");
+      setCheckOutDate("");
     }
+  };
+  const handleClick = () => {
+    localStorage.setItem("apartmentDetails", JSON.stringify(apartmentDetails));
+    router.push(`${id}/confirm-booking`);
   };
   useEffect(() => {
     if (rate) {
       setApartmentDetails((prev) => ({ ...prev, rate: rate }));
     }
-    if (dateRange) {
-      setApartmentDetails((prev) => ({ ...prev, dateRange }));
+    if (number.noOfNight) {
+      setApartmentDetails((prev) => ({
+        ...prev,
+        noOfNights: number.noOfNight,
+      }));
     }
-  }, [dateRange, rate, setApartmentDetails]);
+    if (checkInDate) {
+      setApartmentDetails((prev) => ({ ...prev, checkInDate }));
+    }
+    if (checkOutDate) {
+      setApartmentDetails((prev) => ({ ...prev, checkOutDate }));
+    }
+  }, [checkInDate, checkOutDate, number.noOfNight, rate, setApartmentDetails]);
   useEffect(() => {
     if (apartmentDetails) {
       const charges =
@@ -92,7 +110,7 @@ function Booking({ price }: Prop) {
         <h5 className="text-[#616161] text-[16px] font-[400]">Pick a Date</h5>
         <RangePicker
           onChange={handleDateChange}
-          format={(value) => value.format("DD MMM")}
+          format={(value) => value.format("DD MMM YY")}
           placeholder={["Start Date", "End Date"]}
           className="h-[40px] md:h-[50px] rounded-md"
           suffixIcon={false}
@@ -150,7 +168,10 @@ function Booking({ price }: Prop) {
         </div>
       </div>
       <div className="w-100 flex flex-col gap-4">
-        <button className="bg-primary h-[40px] md:h-[50px] font-[400] text-[16px] md:text-[20px] rounded-lg text-white">
+        <button
+          onClick={handleClick}
+          className="bg-primary h-[40px] md:h-[50px] font-[400] text-[16px] md:text-[20px] rounded-lg text-white"
+        >
           Continue to Book
         </button>
         <button className="bg-[#E4E4E4] h-[40px] md:h-[50px] font-[400] text-[16px] md:text-[20px] rounded-lg text-[#4A4A4A]">

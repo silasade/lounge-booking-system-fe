@@ -173,7 +173,7 @@ function ApartmentCard({
         </div>
         <div className={`w-full ${details ? "md:w-2/5" : "md:w-2/4"}`}>
           {details ? (
-            <Booking price={70000} />
+            <Booking id="123456" price={70000} />
           ) : (
             <>
               <button

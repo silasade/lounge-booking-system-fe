@@ -7,11 +7,13 @@ type PoolService = {
   noOfHour: number;
   noOfGuest: number;
 };
-type ApartmentBooking = {
+export type ApartmentBooking = {
   amenities: AmenitiesType[];
   poolService: PoolService;
   rate: number;
-  dateRange: string;
+  checkInDate: string;
+  checkOutDate: string;
+  noOfNights: number;
 };
 type ApartmentContextType = {
   setApartmentDetails: React.Dispatch<React.SetStateAction<ApartmentBooking>>;
@@ -27,9 +29,11 @@ const ApartmentContext = createContext<ApartmentContextType | undefined>(
 function ApartmentBookingProvider({ children }: ApartmentProviderProp) {
   const [apartmentDetails, setApartmentDetails] = useState<ApartmentBooking>({
     amenities: [],
-    dateRange: "",
+    checkInDate: "",
+    checkOutDate: "",
     poolService: { noOfGuest: 1, noOfHour: 1 },
     rate: 0,
+    noOfNights: 1,
   });
   return (
     <ApartmentContext.Provider
