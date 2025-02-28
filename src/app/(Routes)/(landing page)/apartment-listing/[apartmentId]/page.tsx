@@ -13,8 +13,10 @@ type Apartments = {
   noOfTele: number;
   rate: number;
 };
-function ApartmentDetails({ params }: { params: { apartmentId: string } }) {
-  console.log(params);
+type Params = Promise<{ apartmentId: string }>
+
+function ApartmentDetails(props: { params: Params }) {
+  console.log(props.params);
   const apartmentsList: Apartments = {
     mainImage: "/imgs/oneBed.webp",
     name: " 1-Bedroom Apartment",
