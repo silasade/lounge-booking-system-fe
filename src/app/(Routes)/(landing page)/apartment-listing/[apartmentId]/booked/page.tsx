@@ -70,9 +70,10 @@ function Booked() {
       <div className="max-h-auto h-[470px] min-h-[470px] w-100 flex flex-col lg:flex-row lg:items-center gap-8 bg-white rounded-md p-4 md:p-8 w-100">
         <div className="w-full lg:w-2/5 relative h-2/4 md:h-full">
           <Image
-            src={"/imgs/OneBed.webp"}
+            src="/imgs/OneBed.webp"
+            alt="Modern bedroom with a queen-sized bed and nightstands"
             fill
-            alt="Main pic"
+
             className="object-cover rounded-lg"
           />
         </div>
@@ -145,7 +146,6 @@ function Booked() {
       <Link
         href={"/"}
         onClick={handleStorage}
-
         className="justify-center items-center text-center text-white bg-primary w-full flex md:hidden rounded-md h-[40px] md:h-[50px] font-[400] text-[16px] md:text-[20px] lg:text-[24px]"
       >
         {" "}
