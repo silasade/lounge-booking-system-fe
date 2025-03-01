@@ -93,7 +93,7 @@ function ApartmentCard({
       checkOutTime: "",
     });
     localStorage.removeItem("apartmentDetails");
-  }, []);
+  }, [setApartmentDetails]);
   return (
     <div
       className={`max-h-auto ${
