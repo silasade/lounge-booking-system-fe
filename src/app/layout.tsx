@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     "Indulge in refined apartments or unwind with our exclusive pool services – tailored to your needs",
   category: "Business",
   manifest: "/manifest.json",
+  themeColor: "#ffffff",
+
 };
 export const viewport = {
   themeColor: "#ffffff", // Use a valid hex color (e.g., white)
