@@ -47,8 +47,12 @@ function Booking({ price, id }: Prop) {
   const [rate, setRate] = useState<number>(price);
   const handleNights = useCallback(
     (night: number) => {
-      setNumber((prev) => ({ ...prev, noOfNight: night }));
-      setRate(price * night);
+      if (night >= 1) {
+        setNumber((prev) => ({ ...prev, noOfNight: night }));
+        setRate(price * night);
+      } else {
+        setNumber((prev) => ({ ...prev }));
+      }
     },
     [price]
   );

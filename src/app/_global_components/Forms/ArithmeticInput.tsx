@@ -13,7 +13,6 @@ function ArithmeticInput({ handleNumber, Squared, text, input }: Input) {
   const decrement = () => {
     setNumber((prev) => (prev > 0 ? prev - 1 : prev));
   };
-
   // Increment function.
   const increment = () => {
     setNumber((prev) => prev + 1);
@@ -22,10 +21,11 @@ function ArithmeticInput({ handleNumber, Squared, text, input }: Input) {
   // Format number to have a leading zero if less than 10.
   const formattedNumber = number.toString().padStart(2, "0");
   useEffect(() => {
-    if (number) {
+    if (number !== undefined && number !== null) {
       handleNumber(number);
     }
   }, [handleNumber, number]);
+
   useEffect(() => {
     setNumber(input || 0);
   }, [input]);

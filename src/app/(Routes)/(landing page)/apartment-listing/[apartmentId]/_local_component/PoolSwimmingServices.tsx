@@ -21,29 +21,36 @@ function PoolSwimmingServices() {
     setNumber((prev) => ({ ...prev, noOfHour: hours }));
   }, []);
   const handleGuests = useCallback((guests: number) => {
+    console.log(guests);
     setNumber((prev) => ({ ...prev, noOfGuest: guests }));
   }, []);
   const handlePool = () => {
-    if (number) {
-      setApartmentDetails((prev) => ({ ...prev, poolService: number }));
-      successMessage("Pool Service added sucessfully");
-    }
+    setApartmentDetails((prev) => ({ ...prev, poolService: number }));
+
     if (number.noOfHour < 1 || number.noOfGuest < 1) {
-      errorMessage("Please choose the number of hours and guests");
-    }
-    if (number.noOfGuest || number.noOfHour) {
-      successMessage("Pool Service added sucessfully");
+      errorMessage(
+        "Ensure to choose the number of hours and guests before adding a pool servicce"
+      );
+    } else {
+      successMessage("Pool Service added successfully");
     }
   };
+
   useEffect(() => {
     setNumber((prev) => ({
       ...prev,
-      noOfGuest: apartmentDetails.poolService?.noOfGuest ?? prev.noOfGuest,
-      noOfHour: apartmentDetails.poolService?.noOfHour ?? prev.noOfHour,
+      noOfGuest:
+        apartmentDetails.poolService?.noOfGuest !== undefined
+          ? apartmentDetails.poolService.noOfGuest
+          : prev.noOfGuest,
+      noOfHour:
+        apartmentDetails.poolService?.noOfHour !== undefined
+          ? apartmentDetails.poolService.noOfHour
+          : prev.noOfHour,
     }));
   }, [apartmentDetails.poolService]);
 
-  console.log(apartmentDetails.poolService, number.noOfGuest);
+  console.log(apartmentDetails.poolService, number);
   return (
     <>
       {" "}
@@ -94,20 +101,20 @@ function PoolSwimmingServices() {
           <Button
             onClick={handlePool}
             className={`${
-              apartmentDetails.poolService.noOfGuest > 0 ||
-              apartmentDetails.poolService.noOfHour > 0
-                ? "bg-[#90EE90]"
-                : "bg-primary"
+              apartmentDetails.poolService?.noOfGuest < 1 &&
+              apartmentDetails.poolService?.noOfHour < 1
+                ? "bg-primary": "bg-[#90EE90]"
+                 
             } bg-primary text-white text-[16px] md:text-[18px] rounded-md w-full md:w-64 h-[40px] md:h-[50px]`}
           >
-            {apartmentDetails.poolService.noOfGuest > 0 ||
-            apartmentDetails.poolService.noOfHour > 0 ? (
+            {apartmentDetails.poolService?.noOfGuest < 1 &&
+            apartmentDetails.poolService?.noOfHour < 1 ? (
+              "Add pool"
+            ):(
               <>
                 <CheckCircleOutlined /> &nbsp; Pool services added
               </>
-            ) : (
-              "Add pool"
-            )}
+            )  }
           </Button>
         </div>
       </div>

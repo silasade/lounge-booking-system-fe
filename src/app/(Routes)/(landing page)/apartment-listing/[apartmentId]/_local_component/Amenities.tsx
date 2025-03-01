@@ -14,7 +14,7 @@ type Prop = {
 };
 
 function Amenities({ amenities }: Prop) {
-  const { successMessage, contextHolder } = useMessageHandler();
+  const { successMessage, contextHolder,errorMessage } = useMessageHandler();
   const { setApartmentDetails, apartmentDetails } = useApartmentContext();
 
   const [selectedAmenities, setSelectedAmenities] = useState<AmenitiesType[]>(
@@ -38,7 +38,7 @@ function Amenities({ amenities }: Prop) {
     if (selectedAmenities.length > 0) {
       successMessage("Amenties added sucessfully");
     } else {
-      successMessage("Please select an ammenity before clicking");
+      errorMessage("No amemenities selected");
     }
   };
   useEffect(() => {
