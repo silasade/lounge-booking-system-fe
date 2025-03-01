@@ -38,7 +38,7 @@ function DiscoverSection() {
           }}
           whileInView={{
             clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-            transition: { duration: 5, delay: 0.5 },
+            transition: { duration: 5, delay: 0.2 },
           }}
           viewport={{ once: true }}
           className="relative w-50 h-50"
@@ -54,7 +54,7 @@ function DiscoverSection() {
           initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
           whileInView={{
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-            transition: { duration: 5, delay: 0.5 },
+            transition: { duration: 5, delay: 0.2 },
           }}
           viewport={{ once: true }}
           className="relative w-50 h-50"
