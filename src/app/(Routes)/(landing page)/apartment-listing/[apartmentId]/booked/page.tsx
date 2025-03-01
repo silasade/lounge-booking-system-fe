@@ -3,26 +3,40 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { Divider, Rate } from "antd";
 import { useApartmentContext } from "@/app/_global_components/Context/ApartmentBookingContext";
-import { usePathname, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
+import Link from "next/link";
 function Booked() {
   const { apartmentDetails, setApartmentDetails } = useApartmentContext();
   const router = useRouter();
-  const pathname = usePathname(); // Gets current page path
+  const clearStorage = () => {
+    setApartmentDetails({
+      amenities: [],
+      checkInDate: "",
+      checkOutDate: "",
+      poolService: { noOfGuest: 0, noOfHour: 0 },
+      rate: 0,
+      noOfNights: 1,
+      checkInTime: "",
+      checkOutTime: "",
+    });
+    localStorage.removeItem("apartmentDetails");
 
+  };
   useEffect(() => {
     const handleBackButton = () => {
       router.push("/apartment-listing"); // Redirect instead of going back
     };
 
-    // Push a new state to prevent default back navigation
-    window.history.pushState(null, "", window.location.href);
-    window.addEventListener("popstate", handleBackButton);
+    const handleBeforeUnload = () => {
+      // Store a flag that the page was refreshed
+      sessionStorage.setItem("isPageRefresh", "true");
+    };
 
-    return () => {
-      window.removeEventListener("popstate", handleBackButton);
+    const clearApartmentDetails = () => {
+      const isPageRefresh = sessionStorage.getItem("isPageRefresh");
 
-      // Only clear data when navigating away, not on refresh
-      if (pathname !== window.location.pathname) {
+      if (!isPageRefresh) {
+        // User is leaving the page, clear the data
         setApartmentDetails({
           amenities: [],
           checkInDate: "",
@@ -35,17 +49,43 @@ function Booked() {
         });
         localStorage.removeItem("apartmentDetails");
       }
-    };
-  }, [pathname, router, setApartmentDetails]);
-  
-  
-  return (
-    <div className="flex flex-col gap-8 w-full bg-[#F4F4F4] p-5 pt-20 md:pt-10 md:p-[35px] md:p-[35px] lg:p-[65px] lg:p-[65px]">
-      <h3 className="text-[20px] md:text-[24px] lg:text-[32px] font-[700]">
-        Your Booking
-      </h3>
 
-      <div className="max-h-auto h-[450px] min-h-[450px] w-100 flex flex-col lg:flex-row lg:items-center gap-8 bg-white rounded-md p-4 md:p-8 w-100">
+      // Remove the flag so it's not mistaken for the next session
+      sessionStorage.removeItem("isPageRefresh");
+    };
+
+    // Prevent default back button behavior
+    window.history.pushState(null, "", window.location.href);
+    window.addEventListener("popstate", handleBackButton);
+
+    // Detect refresh vs. navigation away
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    document.addEventListener("visibilitychange", clearApartmentDetails);
+
+    return () => {
+      window.removeEventListener("popstate", handleBackButton);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      document.removeEventListener("visibilitychange", clearApartmentDetails);
+    };
+  }, [router, setApartmentDetails]);
+
+  return (
+    <div className="flex flex-col gap-8 w-full bg-[#F4F4F4] p-5 pt-20 md:pt-15 md:p-[35px] md:p-[35px] lg:p-[65px] lg:p-[65px]">
+      <div className="flex justify-between items-center">
+        <h3 className="text-[20px] md:text-[24px] lg:text-[32px] font-[700]">
+          Your Booking
+        </h3>
+        <Link
+          onClick={clearStorage}
+          href={"/"}
+          className=" justify-center items-center text-center text-white bg-primary w-2/5 hidden md:flex rounded-md h-[40px] md:h-[50px] font-[400] text-[16px] md:text-[20px] lg:text-[24px]"
+        >
+          {" "}
+          Return to homepage{" "}
+        </Link>
+      </div>
+
+      <div className="max-h-auto h-[470px] min-h-[470px] w-100 flex flex-col lg:flex-row lg:items-center gap-8 bg-white rounded-md p-4 md:p-8 w-100">
         <div className="w-full lg:w-2/5 relative h-2/4 md:h-full">
           <Image
             src={"/imgs/OneBed.webp"}
@@ -89,8 +129,8 @@ function Booked() {
               </h6>
             </div>
           </div>
-          <div className="flex flex-row items-center h-fit pt-1 pb-1 gap-5 md:gap-8">
-            <div className="flex flex-col gap-1 text-[#1A1A1A]">
+          <div className="flex flex-row items-center h-fit pb-1 gap-5 md:gap-8">
+            <div className="flex flex-col text-[#1A1A1A]">
               <h6 className="text-[14px] md:text-[16px] font-[400]">
                 Check-in
               </h6>
@@ -106,7 +146,7 @@ function Booked() {
               type="vertical"
               className="border border-[#C2C1C1] h-full"
             />
-            <div className="flex flex-col gap-1 text-[#1A1A1A]">
+            <div className="flex flex-col text-[#1A1A1A]">
               <h6 className="text-[14px] md:text-[16px] font-[400] ">
                 Check-out
               </h6>
@@ -120,6 +160,13 @@ function Booked() {
           </div>
         </div>
       </div>
+      <Link
+        href={"/"}
+        className="justify-center items-center text-center text-white bg-primary w-full flex md:hidden rounded-md h-[40px] md:h-[50px] font-[400] text-[16px] md:text-[20px] lg:text-[24px]"
+      >
+        {" "}
+        Return to homepage{" "}
+      </Link>
     </div>
   );
 }
