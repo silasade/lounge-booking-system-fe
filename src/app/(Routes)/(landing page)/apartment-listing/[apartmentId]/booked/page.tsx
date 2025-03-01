@@ -3,12 +3,13 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { Divider, Rate } from "antd";
 import { useApartmentContext } from "@/app/_global_components/Context/ApartmentBookingContext";
-import {  useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 function Booked() {
   const { apartmentDetails, setApartmentDetails } = useApartmentContext();
   const router = useRouter();
-  const clearStorage = () => {
+  const pathname = usePathname(); // Gets current page path
+  const handleStorage = () => {
     setApartmentDetails({
       amenities: [],
       checkInDate: "",
@@ -20,23 +21,21 @@ function Booked() {
       checkOutTime: "",
     });
     localStorage.removeItem("apartmentDetails");
-
   };
   useEffect(() => {
     const handleBackButton = () => {
       router.push("/apartment-listing"); // Redirect instead of going back
     };
 
-    const handleBeforeUnload = () => {
-      // Store a flag that the page was refreshed
-      sessionStorage.setItem("isPageRefresh", "true");
-    };
+    // Push a new state to prevent default back navigation
+    window.history.pushState(null, "", window.location.href);
+    window.addEventListener("popstate", handleBackButton);
 
-    const clearApartmentDetails = () => {
-      const isPageRefresh = sessionStorage.getItem("isPageRefresh");
+    return () => {
+      window.removeEventListener("popstate", handleBackButton);
 
-      if (!isPageRefresh) {
-        // User is leaving the page, clear the data
+      // Only clear data when navigating away, not on refresh
+      if (pathname !== window.location.pathname) {
         setApartmentDetails({
           amenities: [],
           checkInDate: "",
@@ -49,25 +48,8 @@ function Booked() {
         });
         localStorage.removeItem("apartmentDetails");
       }
-
-      // Remove the flag so it's not mistaken for the next session
-      sessionStorage.removeItem("isPageRefresh");
     };
-
-    // Prevent default back button behavior
-    window.history.pushState(null, "", window.location.href);
-    window.addEventListener("popstate", handleBackButton);
-
-    // Detect refresh vs. navigation away
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    document.addEventListener("visibilitychange", clearApartmentDetails);
-
-    return () => {
-      window.removeEventListener("popstate", handleBackButton);
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-      document.removeEventListener("visibilitychange", clearApartmentDetails);
-    };
-  }, [router, setApartmentDetails]);
+  }, [pathname, router, setApartmentDetails]);
 
   return (
     <div className="flex flex-col gap-8 w-full bg-[#F4F4F4] p-5 pt-20 md:pt-15 md:p-[35px] md:p-[35px] lg:p-[65px] lg:p-[65px]">
@@ -76,8 +58,8 @@ function Booked() {
           Your Booking
         </h3>
         <Link
-          onClick={clearStorage}
           href={"/"}
+          onClick={handleStorage}
           className=" justify-center items-center text-center text-white bg-primary w-2/5 hidden md:flex rounded-md h-[40px] md:h-[50px] font-[400] text-[16px] md:text-[20px] lg:text-[24px]"
         >
           {" "}
@@ -88,7 +70,7 @@ function Booked() {
       <div className="max-h-auto h-[470px] min-h-[470px] w-100 flex flex-col lg:flex-row lg:items-center gap-8 bg-white rounded-md p-4 md:p-8 w-100">
         <div className="w-full lg:w-2/5 relative h-2/4 md:h-full">
           <Image
-            src="/imgs/OneBed.webp"
+            src={"/imgs/OneBed.webp"}
             fill
             alt="Main pic"
             className="object-cover rounded-lg"
@@ -162,6 +144,8 @@ function Booked() {
       </div>
       <Link
         href={"/"}
+        onClick={handleStorage}
+
         className="justify-center items-center text-center text-white bg-primary w-full flex md:hidden rounded-md h-[40px] md:h-[50px] font-[400] text-[16px] md:text-[20px] lg:text-[24px]"
       >
         {" "}

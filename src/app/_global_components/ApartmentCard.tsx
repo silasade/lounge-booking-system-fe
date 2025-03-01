@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { Bathroom, Bed, Fan, Television } from "@/app/_global_components/icons";
 import { Rate } from "antd";
@@ -7,6 +7,7 @@ import Amenities from "../(Routes)/(landing page)/apartment-listing/[apartmentId
 import PoolSwimmingServices from "../(Routes)/(landing page)/apartment-listing/[apartmentId]/_local_component/PoolSwimmingServices";
 import Booking from "../(Routes)/(landing page)/apartment-listing/[apartmentId]/_local_component/Booking";
 import { useRouter } from "next/navigation";
+import { useApartmentContext } from "./Context/ApartmentBookingContext";
 type Prop = {
   mainImage: string;
   sideImageOne: string;
@@ -39,6 +40,8 @@ function ApartmentCard({
   rate,
   details,
 }: Prop) {
+  const { setApartmentDetails } = useApartmentContext();
+
   const router = useRouter();
   const amenities: AmenitiesType[] = [
     {
@@ -78,6 +81,19 @@ function ApartmentCard({
       price: 20000,
     },
   ];
+  useEffect(() => {
+    setApartmentDetails({
+      amenities: [],
+      checkInDate: "",
+      checkOutDate: "",
+      poolService: { noOfGuest: 0, noOfHour: 0 },
+      rate: 0,
+      noOfNights: 1,
+      checkInTime: "",
+      checkOutTime: "",
+    });
+    localStorage.removeItem("apartmentDetails");
+  }, []);
   return (
     <div
       className={`max-h-auto ${
