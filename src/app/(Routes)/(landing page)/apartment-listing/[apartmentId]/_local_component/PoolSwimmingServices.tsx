@@ -9,7 +9,7 @@ type PoolService = {
   noOfGuest: number;
 };
 function PoolSwimmingServices() {
-  const { successMessage,contextHolder } = useMessageHandler();
+  const { successMessage, contextHolder, errorMessage } = useMessageHandler();
 
   const { setApartmentDetails, apartmentDetails } = useApartmentContext();
 
@@ -26,7 +26,13 @@ function PoolSwimmingServices() {
   const handlePool = () => {
     if (number) {
       setApartmentDetails((prev) => ({ ...prev, poolService: number }));
-      successMessage("Pool seapartmentDetails.poolService added sucessfully");
+      successMessage("Pool Service added sucessfully");
+    }
+    if (number.noOfHour < 1 || number.noOfGuest < 1) {
+      errorMessage("Please choose the number of hours and guests");
+    }
+    if (number.noOfGuest || number.noOfHour) {
+      successMessage("Pool Service added sucessfully");
     }
   };
   useEffect(() => {
