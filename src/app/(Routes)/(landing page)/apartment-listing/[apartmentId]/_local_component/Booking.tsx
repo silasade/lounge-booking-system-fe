@@ -166,6 +166,7 @@ function Booking({ price, id }: Prop) {
     <>
       {contextHolder}
       <Modals
+      
         handleCancel={handleModal}
         open={openModal}
         style={{ backgroundColor: "#F4F4F4" }} // Applies to the whole modal

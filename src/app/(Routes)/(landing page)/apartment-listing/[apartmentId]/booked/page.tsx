@@ -88,7 +88,7 @@ function Booked() {
       <div className="max-h-auto h-[470px] min-h-[470px] w-100 flex flex-col lg:flex-row lg:items-center gap-8 bg-white rounded-md p-4 md:p-8 w-100">
         <div className="w-full lg:w-2/5 relative h-2/4 md:h-full">
           <Image
-            src={"/imgs/OneBed.webp"}
+            src="/imgs/OneBed.webp"
             fill
             alt="Main pic"
             className="object-cover rounded-lg"
