@@ -56,7 +56,7 @@ function ApartmentList() {
           add-ons.
         </p>
       </div>
-      <div className="flex flex-col gap-4 w-100">
+      <div className="flex flex-col gap-10 w-100">
         {apartmentsList.map((item, index) => (
           <div key={index}>
             <ApartmentCard

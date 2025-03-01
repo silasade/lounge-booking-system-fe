@@ -7,12 +7,14 @@ import Footer from "./_local_components/Footer";
 import { PaymentProvider } from "@/app/_global_components/Context/PaymentContext";
 import ApartmentBookingProvider from "@/app/_global_components/Context/ApartmentBookingContext";
 import ConfirmBookingProvider from "@/app/_global_components/Context/ConfirmBookingContext";
+
 gsap.registerPlugin(ScrollTrigger);
 type Props = {
   children: React.ReactNode;
   booking: React.ReactNode;
 };
 function Layout({ children, booking }: Props) {
+
   const headerRef = useRef<HTMLDivElement | null>(null);
   const childrenRef = useRef<HTMLDivElement | null>(null);
   console.log(booking);
@@ -30,24 +32,27 @@ function Layout({ children, booking }: Props) {
   }, []);
 
   return (
-    <PaymentProvider>
-      <ApartmentBookingProvider>
-        <ConfirmBookingProvider>
-          <div className="font-roboto flex flex-col">
-            <div ref={headerRef}>
-              <Header />
-            </div>
+    <>
 
-            <div ref={childrenRef}>
-              {booking}
-              {children}
-            </div>
+      <PaymentProvider>
+        <ApartmentBookingProvider>
+          <ConfirmBookingProvider>
+            <div className="font-roboto flex flex-col">
+              <div ref={headerRef}>
+                <Header />
+              </div>
 
-            <Footer />
-          </div>
-        </ConfirmBookingProvider>
-      </ApartmentBookingProvider>
-    </PaymentProvider>
+              <div ref={childrenRef}>
+                {booking}
+                {children}
+              </div>
+
+              <Footer />
+            </div>
+          </ConfirmBookingProvider>
+        </ApartmentBookingProvider>
+      </PaymentProvider>
+    </>
   );
 }
 

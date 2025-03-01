@@ -1,21 +1,13 @@
-"use client";
 import Link from "next/link";
 
- // Error boundaries must be Client Components
-
-
-export default function Error() {
-  
-
+export default function NotFound() {
   return (
-    <div className="grid place-items-center w-full min-h-[80vh] bg-[#F4F4F4] p-5 md:p-0">
+    <div className="grid place-items-center w-full min-h-[100vh] bg-[#F4F4F4] p-5 md:p-0">
       <div className="flex flex-col gap-8 w-full md:w-3/4 items-center">
-
         <div className="flex flex-col gap-5 text-center">
           <h3 className="font-[700] text-[24px] md:text-[32px] lg:text-[40px] ">
-            Something went wrong. Try again later
+            Page not found
           </h3>
-          
         </div>
         <Link
           href={"/"}

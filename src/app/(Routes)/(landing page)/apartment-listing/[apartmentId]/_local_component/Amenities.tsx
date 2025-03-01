@@ -1,7 +1,9 @@
 "use client";
 import { useApartmentContext } from "@/app/_global_components/Context/ApartmentBookingContext";
-import React, { useState } from "react";
-
+import { CheckCircleOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+import React, { useEffect, useState } from "react";
+import { useMessageHandler } from "@/app/_global_components/Message";
 type AmenitiesType = {
   name: string;
   price: number;
@@ -12,10 +14,11 @@ type Prop = {
 };
 
 function Amenities({ amenities }: Prop) {
-  const { setApartmentDetails } = useApartmentContext();
+  const {successMessage,contextHolder}=useMessageHandler()
+  const { setApartmentDetails, apartmentDetails } = useApartmentContext();
 
   const [selectedAmenities, setSelectedAmenities] = useState<AmenitiesType[]>(
-    []
+    apartmentDetails.amenities || []
   );
 
   const handleCheckboxChange = (amenity: AmenitiesType) => {
@@ -31,9 +34,15 @@ function Amenities({ amenities }: Prop) {
         ...prev,
         amenities: selectedAmenities,
       }));
+      successMessage("Amenties added sucessfully")
     }
   };
+  useEffect(() => {
+    setSelectedAmenities(apartmentDetails.amenities || []);
+  }, [apartmentDetails.amenities]);
   return (
+    <>
+    {contextHolder}
     <div className="flex flex-col gap-4">
       <h3 className="text-center text-[20px] font-[500]">Amenities</h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-5 gap-x-5">
@@ -58,18 +67,26 @@ function Amenities({ amenities }: Prop) {
           </div>
         ))}
       </div>
-      <div
-        className="flex justify-center
-      "
-      >
-        <button
+      <div className="flex justify-center w-100">
+        <Button
           onClick={handleAmenities}
-          className="bg-primary text-white text-[16px] md:text-[18px] rounded-md w-full md:w-64 h-[40px] md:h-[50px]"
+          className={`${
+            apartmentDetails.amenities.length > 0 ? "bg-[#90EE90]" : "bg-primary"
+          } bg-primary text-white text-[16px] md:text-[18px] rounded-md w-full md:w-64 h-[40px] md:h-[50px]`}
         >
-          Add amenities
-        </button>
+          {apartmentDetails.amenities.length > 0 ? (
+            <>
+              <CheckCircleOutlined /> &nbsp; Amenities added
+            </>
+          ) : (
+            "          Add amenities"
+          )}
+        </Button>
       </div>
     </div>
+
+
+    </>
   );
 }
 

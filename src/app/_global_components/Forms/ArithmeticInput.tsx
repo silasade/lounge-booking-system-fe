@@ -3,14 +3,15 @@ type Input = {
   handleNumber: (number: number) => void;
   Squared?: boolean;
   text?: string;
+  input?: number;
 };
-function ArithmeticInput({ handleNumber, Squared, text }: Input) {
-  // Start at 1 to ensure it doesn't go below 1.
-  const [number, setNumber] = useState<number>(1);
+function ArithmeticInput({ handleNumber, Squared, text, input }: Input) {
+  // Start at 0 to ensure it doesn't go below 0.
+  const [number, setNumber] = useState<number>(input || 0);
 
   // Decrement only if number is greater than 1.
   const decrement = () => {
-    setNumber((prev) => (prev > 1 ? prev - 1 : prev));
+    setNumber((prev) => (prev > 0 ? prev - 1 : prev));
   };
 
   // Increment function.
@@ -25,6 +26,9 @@ function ArithmeticInput({ handleNumber, Squared, text }: Input) {
       handleNumber(number);
     }
   }, [handleNumber, number]);
+  useEffect(() => {
+    setNumber(input || 0);
+  }, [input]);
   return (
     <div
       className={`flex flex-row justify-between ${
