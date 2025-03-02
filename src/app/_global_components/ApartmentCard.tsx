@@ -8,6 +8,7 @@ import PoolSwimmingServices from "../(Routes)/(landing page)/apartment-listing/[
 import Booking from "../(Routes)/(landing page)/apartment-listing/[apartmentId]/_local_component/Booking";
 import { useRouter } from "next/navigation";
 import { useApartmentContext } from "./Context/ApartmentBookingContext";
+import GymServices from "../(Routes)/(landing page)/apartment-listing/[apartmentId]/_local_component/GymServices";
 type Prop = {
   mainImage: string;
   sideImageOne: string;
@@ -87,6 +88,8 @@ function ApartmentCard({
       checkInDate: "",
       checkOutDate: "",
       poolService: { noOfGuest: 0, noOfHour: 0 },
+      gymService: { noOfGuest: 0, noOfHour: 0 },
+
       rate: 0,
       noOfNights: 1,
       checkInTime: "",
@@ -184,6 +187,7 @@ function ApartmentCard({
             <div className={`flex flex-col gap-20 ${details ? "mt-10" : ""}`}>
               <Amenities amenities={amenities} />
               <PoolSwimmingServices />
+              <GymServices />
             </div>
           )}
         </div>

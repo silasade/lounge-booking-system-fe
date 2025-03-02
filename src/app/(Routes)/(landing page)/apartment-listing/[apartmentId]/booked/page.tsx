@@ -15,6 +15,8 @@ function Booked() {
       checkInDate: "",
       checkOutDate: "",
       poolService: { noOfGuest: 0, noOfHour: 0 },
+      gymService: { noOfGuest: 0, noOfHour: 0 },
+
       rate: 0,
       noOfNights: 1,
       checkInTime: "",
@@ -41,6 +43,8 @@ function Booked() {
           checkInDate: "",
           checkOutDate: "",
           poolService: { noOfGuest: 0, noOfHour: 0 },
+          gymService: { noOfGuest: 0, noOfHour: 0 },
+
           rate: 0,
           noOfNights: 1,
           checkInTime: "",
@@ -73,7 +77,6 @@ function Booked() {
             src="/imgs/OneBed.webp"
             alt="Modern bedroom with a queen-sized bed and nightstands"
             fill
-
             className="object-cover rounded-lg"
           />
         </div>

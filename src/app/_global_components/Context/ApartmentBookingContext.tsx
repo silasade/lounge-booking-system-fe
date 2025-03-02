@@ -9,10 +9,16 @@ type PoolService = {
   noOfHour: number;
   noOfGuest: number;
 };
+type GymService = {
+  noOfHour: number;
+  noOfGuest: number;
+};
 
 export type ApartmentBooking = {
   amenities: AmenitiesType[];
   poolService: PoolService;
+  gymService: GymService;
+
   rate: number;
   checkInDate: string;
   checkOutDate: string;
@@ -50,6 +56,8 @@ function ApartmentBookingProvider({ children }: ApartmentProviderProp) {
     checkInDate: "",
     checkOutDate: "",
     poolService: { noOfGuest: 0, noOfHour: 0 },
+    gymService: { noOfGuest: 0, noOfHour: 0 },
+
     rate: 0,
     noOfNights: 1,
     checkInTime: "",
