@@ -6,6 +6,7 @@ import ApartmentSection from "./_local_components/Apartment";
 import PoolSection from "./_local_components/PoolSection";
 import Testimonial from "./_local_components/Testimonial";
 import ContactSection from "./_local_components/ContactSection";
+import GymSection from "./_local_components/GymSection";
 
 function HomePage() {
   return (
@@ -15,9 +16,9 @@ function HomePage() {
       <AboutSection />
       <ApartmentSection />
       <PoolSection />
+      <GymSection />
       <Testimonial />
-      <ContactSection/>
-      
+      <ContactSection />
     </div>
   );
 }
