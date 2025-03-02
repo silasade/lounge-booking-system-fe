@@ -72,7 +72,7 @@ function PoolSection() {
             Ready for a Refreshing Experience?
           </p>
           <button
-            onClick={() => router.push("/book-gym",{ scroll: false })}
+            onClick={() => router.push("/book-pool",{ scroll: false })}
             className="bg-primary text-white rounded-md text-[16px] md:text-[18px] lg:text-[20px] w-full md:w-64 h-[40px] h-[50px]"
           >
             Book Your Pool Service
