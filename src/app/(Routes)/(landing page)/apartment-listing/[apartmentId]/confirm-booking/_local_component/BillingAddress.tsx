@@ -2,9 +2,7 @@
 import { useConfirmBooking } from "@/app/_global_components/Context/ConfirmBookingContext";
 import React, { useEffect, useState } from "react";
 import { CountryDropdown } from "react-country-region-selector";
-import { Typography } from "antd";
 
-const { Text } = Typography;
 type Inputs = {
   fName: string;
   lName: string;
@@ -60,9 +58,7 @@ function BillingAddress() {
               }
               className="w-100 h-[40px] md:h-[50px] p-3 border-heroText bg-[#F4F4F4] rounded-lg"
             />
-            {!billingAddress.fName && (
-              <Text type="danger">First name is required</Text>
-            )}
+            
           </div>
           <div className="flex flex-col gap-2 w-full">
             <h5 className="text-[14px] md:text-[16px] font-[400]">Last Name</h5>
@@ -77,9 +73,7 @@ function BillingAddress() {
               }
               className="w-100 h-[40px] md:h-[50px] p-3 border-heroText bg-[#F4F4F4] rounded-lg"
             />
-            {!billingAddress.lName && (
-              <Text type="danger">last name is required</Text>
-            )}
+           
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-3">
@@ -99,9 +93,7 @@ function BillingAddress() {
               }
               className="w-100 h-[40px] md:h-[50px] p-3 border-heroText bg-[#F4F4F4] rounded-lg"
             />
-            {!billingAddress.pNumber && (
-              <Text type="danger">Phone number is required</Text>
-            )}
+            
           </div>
           <div className="flex flex-col gap-2 w-full">
             <h5 className="text-[14px] md:text-[16px] font-[400]">Email</h5>
@@ -116,9 +108,7 @@ function BillingAddress() {
               }
               className="w-100 h-[40px] md:h-[50px] p-3 border-heroText bg-[#F4F4F4] rounded-lg"
             />
-            {!billingAddress.email && (
-              <Text type="danger">Email is required</Text>
-            )}
+            
           </div>
         </div>
         <div className="flex flex-col lg:flex-row items-center gap-3">
@@ -134,9 +124,7 @@ function BillingAddress() {
                 }))
               }
             />
-            {!billingAddress.country && (
-              <Text type="danger">Please select the country</Text>
-            )}
+            
           </div>
           <div className="flex flex-col gap-2 w-full">
             <h5 className="text-[14px] md:text-[16px] font-[400]">
@@ -153,9 +141,7 @@ function BillingAddress() {
               }
               className="w-100 h-[40px] md:h-[50px] p-3 border-heroText bg-[#F4F4F4] rounded-lg"
             />
-            {!billingAddress.country && (
-              <Text type="danger">Please select the state</Text>
-            )}
+           
           </div>
           <div className="flex flex-col gap-2 w-full">
             <h5 className="text-[14px] md:text-[16px] font-[400]">
@@ -172,9 +158,7 @@ function BillingAddress() {
               }
               className="w-100 h-[40px] md:h-[50px] p-3 border-heroText bg-[#F4F4F4] rounded-lg"
             />
-            {!billingAddress.country && (
-              <Text type="danger">Please select the postal code</Text>
-            )}
+           
           </div>
         </div>
       </form>

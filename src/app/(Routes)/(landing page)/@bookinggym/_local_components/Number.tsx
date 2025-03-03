@@ -44,7 +44,8 @@ function Number() {
             Number of People
           </h5>
           <p className="italic text-[#4A4A4A] text-[14px] md:text-[16px] font-[300]">
-          How many people will be using the gym?          </p>
+            How many people will be using the gym?{" "}
+          </p>
         </div>
         <div className="flex flex-col gap-2 w-full sm:w-1/2">
           <ArithmeticInput handleNumber={handlePeopleChange} />
@@ -55,7 +56,9 @@ function Number() {
       </div>
       <div className="flex flex-col sm:flex-row row-gap-2 justify-between sm:items-center">
         <div className="flex flex-col gap-3">
-          <h5 className="text-[16px] md:text-[20px] font-[500]">Number of Hours</h5>
+          <h5 className="text-[16px] md:text-[20px] font-[500]">
+            Number of Hours
+          </h5>
           <p className="italic text-[#4A4A4A] text-[14px] md:text-[16px] font-[300]">
             How many hours?
           </p>
@@ -69,7 +72,9 @@ function Number() {
       </div>
       <div className="flex flex-col sm:flex-row row-gap-2 justify-between sm:items-center">
         <div className="flex flex-col gap-3">
-          <h5 className="text-[16px] md:text-[20px] font-[500]">Number of Days</h5>
+          <h5 className="text-[16px] md:text-[20px] font-[500]">
+            Number of Days
+          </h5>
           <p className="italic text-[#4A4A4A] text-[14px] md:text-[16px] font-[300]">
             How many days?
           </p>
@@ -82,4 +87,4 @@ function Number() {
   );
 }
 
-export default Number
+export default Number;

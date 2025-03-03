@@ -4,9 +4,6 @@ import { DatePicker } from "antd";
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { useConfirmBooking } from "@/app/_global_components/Context/ConfirmBookingContext";
-import { Typography } from "antd";
-
-const { Text } = Typography;
 type Inputs = {
   nameOnCard: string;
   debitCardNumber: string;
@@ -34,7 +31,9 @@ function PaymentInfo() {
   }, [paymentInfo, setConfimBooking]);
   return (
     <div className="flex flex-col gap-4 bg-white rounded-md p-4">
-      <h3 className="text-[16px] md:text-[20px] lg:text-[24px] font-[600]">Payment Information</h3>
+      <h3 className="text-[16px] md:text-[20px] lg:text-[24px] font-[600]">
+        Payment Information
+      </h3>
       <form className="flex flex-col gap-4">
         <div className="flex flex-col md:flex-row items-center gap-3">
           <div className="flex flex-col gap-2 w-full">
@@ -53,13 +52,10 @@ function PaymentInfo() {
               }
               className="w-full h-[40px] md:h-[50px] p-3 border-heroText bg-[#F4F4F4] rounded-lg"
             />
-            {!paymentInfo.nameOnCard && (
-              <Text type="danger">Please enter the name on the card</Text>
-            )}
           </div>
           <div className="flex flex-col gap-2 w-full">
             <h5 className="text-[14px] md:text-[16px] font-[400]">
-              Credit/Debit Card Number
+              Credit/Debit Card Number<sup className="text-red-600"> *</sup>
             </h5>
             <input
               type="text"
@@ -73,17 +69,12 @@ function PaymentInfo() {
               }
               className="w-full h-[40px] md:h-[50px] p-3 border-heroText bg-[#F4F4F4] rounded-lg"
             />
-            {!paymentInfo.debitCardNumber && (
-              <Text type="danger">
-                Please enter the credit/debit card number
-              </Text>
-            )}
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-3">
           <div className="flex flex-col gap-2 w-full">
             <h5 className="text-[14px] md:text-[16px] font-[400]">
-              Expiry Date
+              Expiry Date<sup className="text-red-600"> *</sup>
             </h5>
             <DatePicker
               className="w-full h-[40px] md:h-[50px] p-3 bg-[#F4F4F4] rounded-lg"
@@ -103,14 +94,11 @@ function PaymentInfo() {
               }}
               format="MM/YY"
             />
-            {!paymentInfo.expiry && (
-              <Text type="danger">
-                Please enter the expiry date of the card
-              </Text>
-            )}
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <h5 className="text-[14px] md:text-[16px] font-[400]">CVV</h5>
+            <h5 className="text-[14px] md:text-[16px] font-[400]">
+              CVV <sup className="text-red-600"> *</sup>
+            </h5>
             <input
               type="text"
               placeholder="CVV"
@@ -123,9 +111,6 @@ function PaymentInfo() {
               }
               className="w-full h-[40px] md:h-[50px] p-3 border-heroText bg-[#F4F4F4] rounded-lg"
             />
-            {!paymentInfo.cvv && (
-              <Text type="danger">Please enter the CVV on the card</Text>
-            )}
           </div>
         </div>
       </form>
