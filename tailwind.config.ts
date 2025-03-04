@@ -34,7 +34,10 @@ export default {
         borderColor: "#D9D9D9",
         background: "var(--background)",
         foreground: "var(--foreground)",
-
+        calenderbg: "#F39C12",
+        hourBg: "#F4D03F",
+        bungBg: "#3498DB",
+        checkBg: "#27AE60",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
