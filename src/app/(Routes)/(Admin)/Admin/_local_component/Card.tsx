@@ -1,4 +1,5 @@
 import Statistics from "@/app/_global_components/Statistics";
+import { Skeleton } from "@/components/ui/skeleton";
 import React from "react";
 type CardProp = {
   title: string;
@@ -10,8 +11,10 @@ type CardProp = {
   up: boolean;
 };
 function Card({ title, color, icon, number, time, stat, up }: CardProp) {
-  return (
-    <div className="h-50 flex flex-col justify-between p-3 gap-5 rounded-lg w-full bg-white">
+  return !title ? (
+    <Skeleton className="w-full bg-gray-200 h-24 rounded-lg" />
+  ) : (
+    <div className="h-24 flex flex-col justify-between p-5 gap-5 rounded-lg w-full bg-white">
       <div className="flex justify-between items-start">
         <div className="flex flex-col gap-3">
           <h3 className="text-[16px] font-[600] text-[#202224]">{title}</h3>

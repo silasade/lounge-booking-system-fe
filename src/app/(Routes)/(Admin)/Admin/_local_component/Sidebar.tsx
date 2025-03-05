@@ -4,6 +4,7 @@ import {
   Apartments,
   Booking,
   Dashboard,
+  Exit,
   Expenses,
 } from "@/app/_global_components/icons";
 import Link from "next/link";
@@ -48,10 +49,8 @@ function Sidebar() {
   ];
 
   return (
-    <div className="fixed w-full h-full">
-        <div className="flex justify-end w-full border-b border-[#B3B3B3] h-[69px]">
-
-        </div>
+    <div className="fixed w-[20%] h-full">
+      <div className="flex justify-end border-b border-[#B3B3B3] h-[69px]"></div>
       {links.map((item, index) => (
         <Link
           key={index}
@@ -60,13 +59,18 @@ function Sidebar() {
           className={`flex items-center gap-3 p-4 text-[#201F1F] text-[16px] font-[500] ${
             pathName.includes(item.href) && index != 0
               ? "bg-[#EAEAEA80] rounded-md"
-              : pathName.includes(item.href) && index == 0 && "bg-[#EAEAEA80] rounded-md"
+              : pathName===(item.href) &&
+                index == 0 &&
+                "bg-[#EAEAEA80] rounded-md"
           } hover:bg-[#EAEAEA80] rounded-md transition`}
         >
           {item.icon}
           <span className="text-[14px]">{item.text}</span>
         </Link>
       ))}
+      <div className="flex absolute bottom-5 cursor-pointer flex-row gap-3 items-center content-end p-4 text-[#201F1F] text-[16px] font-[500]">
+        <Exit color="#F53838" /> <span className="text-[14px]">Logout</span>
+      </div>
     </div>
   );
 }

@@ -8,8 +8,8 @@ function Header() {
     console.log(value)
   };
   return (
-    <header className="flex justify-end w-full p-5 border-b border-[#B3B3B3] h-[69px]">
-      <div className="flex justify-end items-center w-64 gap-5">
+    <header className="fixed z-20 w-full p-5 border-b border-[#B3B3B3] h-[69px] bg-white">
+      <div className="absolute left-[60%] flex  items-center w-64 gap-5">
         <SearchInput onSearch={handleSearch} placeholder="Search" />
         <Notification width={40} height={40} />
       </div>

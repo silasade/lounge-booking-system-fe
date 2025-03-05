@@ -20,3 +20,4 @@ export { default as HourGlass } from "./HourGlass";
 export { default as Reserved } from "./Reserved";
 export { default as TrendUp } from "./TrendUp";
 export { default as TrendDown } from "./TrendDown";
+export { default as Exit } from "./Exit";

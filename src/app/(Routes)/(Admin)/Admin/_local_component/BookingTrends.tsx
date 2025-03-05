@@ -56,7 +56,7 @@ export default function BookingTrends() {
                 value: "Naira", // Label text
                 angle: 0, // Keeps it horizontal
                 position: "top", // Moves it to the top
-                offset: 10, // Adjust spacing from the axis
+                offset: 20, // Adjust spacing from the axis
                 style: { fontSize: "14px", fontWeight: "bold" }, // Optional styling
               }}
               domain={[0, 500000]} // Adjust based on max data value

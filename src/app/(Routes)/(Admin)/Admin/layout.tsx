@@ -7,16 +7,14 @@ type DashboardProp = {
 function DashboardLayout({ children }: DashboardProp) {
   return (
     <div className="relative grid h-screen grid-cols-[20%_80%]">
-      <aside className="sticky h-full w-full border-r border-[#B3B3B3]">
+      <aside className="sticky h-full  border-r border-[#B3B3B3]">
         <Sidebar />
       </aside>
-      <div className="h-full w-full bg-[#F8F8F8] z-10">
-        <Header />
-        <div className="p-5">
-
-        
-        {children}
+      <div className="h-full w-full bg-[#F8F8F8] ">
+        <div className="w-full z-20 ">
+          <Header />
         </div>
+        <div className="p-5 mt-[70px] z-10">{children}</div>
       </div>
     </div>
   );
