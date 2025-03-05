@@ -48,7 +48,7 @@ function Sidebar() {
   ];
 
   return (
-    <div className="w-full h-full">
+    <div className="fixed w-full h-full">
         <div className="flex justify-end w-full border-b border-[#B3B3B3] h-[69px]">
 
         </div>

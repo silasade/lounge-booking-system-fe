@@ -52,7 +52,7 @@ function Overview() {
         />
       </div>
       <div className="flex flex-row gap-4">
-        <div className="w-2/5  bg-white">
+        <div className="w-2/5 rounded-lg  bg-white">
           <ProgressCircle />
         </div>
         <div className="w-3/5  bg-white">
@@ -60,12 +60,10 @@ function Overview() {
         </div>
       </div>
       <div className="flex  flex-row gap-4">
-        <div className="w-auto flex-1 bg-white">
+        <div className="w-3/5 flex-1 bg-white">
           <BookingTrends />
         </div>
-        <div className="w-auto h-full bg-white">
           <CalendarWrapper />
-        </div>
       </div>
     </div>
   );
