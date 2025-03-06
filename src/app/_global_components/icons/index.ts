@@ -21,3 +21,5 @@ export { default as Reserved } from "./Reserved";
 export { default as TrendUp } from "./TrendUp";
 export { default as TrendDown } from "./TrendDown";
 export { default as Exit } from "./Exit";
+export {default as ArrowDown} from "./ArrowDown"
+export {default as User} from "./User"

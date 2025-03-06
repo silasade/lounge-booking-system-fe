@@ -18,7 +18,6 @@ type Props = {
 function Layout({ children, booking, bookinggym }: Props) {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const childrenRef = useRef<HTMLDivElement | null>(null);
-  console.log(booking);
   useLayoutEffect(() => {
     if (!headerRef.current || !childrenRef.current) return;
 

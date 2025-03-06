@@ -9,7 +9,7 @@ import Card from "./_local_component/Card";
 import ProgressCircle from "./_local_component/ProgressCircle";
 import BarChart from "./_local_component/BarCharts";
 import BookingTrends from "./_local_component/BookingTrends";
-import CalendarWrapper from "./_local_component/CalendarWrapper";
+import CalendarWrapper from "../../../_global_components/Shad ui/CalendarWrapper";
 function Overview() {
   return (
     <div className="flex flex-col gap-4">
@@ -63,7 +63,9 @@ function Overview() {
         <div className="w-3/5 flex-1 bg-white">
           <BookingTrends />
         </div>
+        <div className="w-2/5 flex-1 h-[450px]">
           <CalendarWrapper />
+        </div>
       </div>
     </div>
   );

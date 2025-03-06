@@ -7,7 +7,7 @@ function CalendarWrapper() {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
-    <div className="w-2/5 bg-white rounded-lg">
+    <div className="w-full h-full bg-white rounded-lg">
       <Calendar
         mode="single"
         selected={date}
