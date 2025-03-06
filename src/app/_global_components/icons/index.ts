@@ -25,3 +25,4 @@ export { default as ArrowDown } from "./ArrowDown";
 export { default as User } from "./User";
 export { default as Edit } from "./Edit";
 export { default as Bin } from "./Bin";
+export { default as Filter } from "./Filter";

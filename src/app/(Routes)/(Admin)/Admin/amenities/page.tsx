@@ -5,7 +5,7 @@ import GymService from "./_local_component/GymService";
 
 function Amenity() {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-8">
       <Amenities />
       <PoolService />
       <GymService />

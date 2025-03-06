@@ -77,14 +77,14 @@ function GymService() {
           trigger={<Ellipsis />}
           className="flex flex-col rounded-lg h-fit p-0"
         >
-          <h5             onClick={() => handleID(row.original.id)}
- className="gap-2 cursor-pointer pt-[12px] pr-[20px] pb-[12px] pl-[20px] flex items-center border-b border-[#E1E1E1] text-[#959595] font-[400] text-[14px] h-[48px] hover:bg-[#FFF1E3] hover:text-secondary">
+          <h5
+            onClick={() => handleID(row.original.id)}
+            className="gap-2 cursor-pointer pt-[12px] pr-[20px] pb-[12px] pl-[20px] flex items-center border-b border-[#E1E1E1] text-[#959595] font-[400] text-[14px] h-[48px] hover:bg-[#FFF1E3] hover:text-secondary"
+          >
             <Edit width={17} height={17} />
             Edit
           </h5>
-          <h5
-            className="gap-2 cursor-pointer pt-[12px] pr-[20px] pb-[12px] pl-[20px] flex items-center text-[#959595] font-[400] text-[14px] h-[48px] hover:bg-[#FFF1E3] hover:text-secondary"
-          >
+          <h5 className="gap-2 cursor-pointer pt-[12px] pr-[20px] pb-[12px] pl-[20px] flex items-center text-[#959595] font-[400] text-[14px] h-[48px] hover:bg-[#FFF1E3] hover:text-secondary">
             <Bin width={17} height={17} />
             Delete
           </h5>
@@ -103,7 +103,7 @@ function GymService() {
       </Modals>
       <div className="flex flex-col gap-5">
         <div className="flex justify-between items-center">
-          <h3 className="text-[24px] font-[600]">Pool Services</h3>
+          <h3 className="text-[24px] font-[600]">Gym Services</h3>
           <Link
             href="/Admin/amenities/create-gym"
             className="bg-secondary rounded-md text-white p-2"
