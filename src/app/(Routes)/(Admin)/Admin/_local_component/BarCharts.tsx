@@ -68,8 +68,10 @@ const BarChart: React.FC = () => {
 
   return (
     <div className="w-full min-h-[356px] p-5 rounded-lg flex flex-col">
-      <h3 className="text-xl font-semibold mb-4">Occupancy Statistics</h3>
-      <div className="w-[600px] h-[350px]">
+      <h3 className="text-center md:text-left text-xl font-semibold mb-4">
+        Occupancy Statistics
+      </h3>
+      <div className="w-full h-[350px]">
         <Bar ref={chartRef} data={data} options={options} />
       </div>
     </div>

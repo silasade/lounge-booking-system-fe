@@ -13,7 +13,7 @@ import CalendarWrapper from "../../../_global_components/Shad ui/CalendarWrapper
 function Overview() {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-col md:flex-row gap-3 flex-wrap">
         <Card
           title="Total Reserved"
           icon={<Reserved width={30} height={30} color="#F39C12" />}
@@ -51,19 +51,19 @@ function Overview() {
           up={true}
         />
       </div>
-      <div className="flex flex-row gap-4">
-        <div className="w-2/5 rounded-lg  bg-white">
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="w-full md:w-2/5 rounded-lg  bg-white flex-1">
           <ProgressCircle />
         </div>
-        <div className="w-3/5  bg-white">
+        <div className="w-full md:w-3/5  bg-white flex-1">
           <BarChart />
         </div>
       </div>
-      <div className="flex  flex-row gap-4">
-        <div className="w-3/5 flex-1 bg-white">
+      <div className="flex flex-col md:flex-row gap-4 flex-wrap">
+        <div className="w-full md:w-3/5 flex-1 bg-white">
           <BookingTrends />
         </div>
-        <div className="w-2/5 flex-1 h-[450px]">
+        <div className="w-full md:w-2/5 flex-1 h-[450px]">
           <CalendarWrapper />
         </div>
       </div>

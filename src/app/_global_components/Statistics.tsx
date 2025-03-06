@@ -10,9 +10,13 @@ function Statistics({ value, up }: Statistics) {
     <Statistic
       value={value}
       precision={1}
-      rootClassName="text-[16px] font-[600]"
-      valueStyle={{ color: up ? "#00B69B" : "#F93C65", fontSize:"16px", display:"flex",alignItems:"center"
-       }}
+      rootClassName="text-[14px] font-[600]"
+      valueStyle={{
+        color: up ? "#00B69B" : "#F93C65",
+        fontSize: "14px",
+        display: "flex",
+        alignItems: "center",
+      }}
       prefix={up ? <TrendUp /> : <TrendDown />}
       suffix="%"
     />

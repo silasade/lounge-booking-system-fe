@@ -6,7 +6,7 @@ type CardProp = {
 };
 function Card({ name, price, type }: CardProp) {
   return (
-    <div className="flex-1 w-full rounded-lg h-32 p-5 flex flex-col items-between justify-between border border-secondary">
+    <div className="flex-1 w-full rounded-lg h-32 p-4 flex flex-col items-between justify-between border border-secondary">
       <p className="text-[#616161] font-[500] text-[14px]">{name}</p>
       <h5 className="text-[#302E2E] font-[500] text-[24px]">
         {" "}

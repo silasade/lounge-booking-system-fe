@@ -26,7 +26,7 @@ function Expenses() {
   ];
   return (
     <div className="flex flex-col gap-8 w-full">
-      <div className="flex flex-row gap-4 w-full">
+      <div className="flex flex-col md:flex-row gap-4 w-full">
         {cards.map((item, index) => (
           <div key={index} className="h-fit w-full">
             <Card name={item.name} price={item.price} type={item.type} />

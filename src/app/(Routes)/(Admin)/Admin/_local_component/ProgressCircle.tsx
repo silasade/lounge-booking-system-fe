@@ -37,6 +37,7 @@ const options: ChartOptions<"doughnut"> = {
     legend: {
       display: true,
       position: "top",
+    
       labels: {
         usePointStyle: true, // Makes legend circles
         pointStyle: "circle", // Ensures proper rounding
@@ -65,7 +66,7 @@ const ProgressCircle: React.FC = () => {
   return (
     <div className="w-full min-h-[356px] p-5 flex flex-col">
       <h3 className="text-xl font-semibold mb-4">Occupancy%</h3>
-      <div className="w-[300px] h-[300px]">
+      <div className="max-w-full md:w-[300px] h-[300px]">
         <Doughnut data={data} options={options} plugins={[centerTextPlugin]} />
       </div>
     </div>
