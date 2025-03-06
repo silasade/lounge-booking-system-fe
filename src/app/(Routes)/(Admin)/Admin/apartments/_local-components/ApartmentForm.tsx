@@ -13,10 +13,10 @@ type Inputs = {
   type: string;
   facilities: string;
 };
-type Prop={
-  handleCancel:()=>void
-}
-function ApartmentForm({handleCancel}:Prop) {
+type Prop = {
+  handleCancel: () => void;
+};
+function ApartmentForm({ handleCancel }: Prop) {
   const {
     register,
     handleSubmit,
@@ -25,7 +25,7 @@ function ApartmentForm({handleCancel}:Prop) {
 
   const onSubmit = (data: Inputs) => {
     console.log(data);
-    handleCancel()
+    handleCancel();
   };
 
   return (
@@ -46,7 +46,10 @@ function ApartmentForm({handleCancel}:Prop) {
 
       {/* Images Upload */}
       <div className="flex flex-col gap-2 w-full">
-        <Label htmlFor="picture" className="text-[14px] font-medium text-[#464748]">
+        <Label
+          htmlFor="picture"
+          className="text-[14px] font-medium text-[#464748]"
+        >
           Add Images
         </Label>
         <Input
@@ -102,7 +105,9 @@ function ApartmentForm({handleCancel}:Prop) {
           type="text"
           className="border border-[#E4E4E4] rounded-lg h-[40px] px-2 placeholder-gray-500"
         />
-        {errors.facilities && <Text type="danger">{errors.facilities.message}</Text>}
+        {errors.facilities && (
+          <Text type="danger">{errors.facilities.message}</Text>
+        )}
       </div>
 
       {/* Buttons */}
@@ -110,14 +115,14 @@ function ApartmentForm({handleCancel}:Prop) {
         <button
           type="button"
           onClick={handleCancel}
-          className="text-[14px] font-medium text-[#4A4A4A] bg-[#E4E4E4] px-4 py-2 rounded-lg"
+          className="text-[14px] font-medium h-[40px] text-[#4A4A4A] bg-[#E4E4E4] px-4 py-2 rounded-lg"
         >
           Cancel
         </button>
         <Button
           loading={isSubmitting}
           htmlType="submit"
-          className="text-[14px] font-medium text-white bg-[#74C0DB] px-4 py-2 rounded-lg"
+          className="text-[14px] font-medium h-[40px] text-white bg-[#74C0DB] px-4 py-2 rounded-lg"
         >
           Save
         </Button>

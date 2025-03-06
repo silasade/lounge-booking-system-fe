@@ -1,8 +1,7 @@
-"use client";
 import React from "react";
 import ApartmentCard from "./_local-components/ApartmentCard";
 import CalendarPopover from "./_local-components/CalendarPopover";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 type ApartmentType = {
   profile: string;
   name: string;
@@ -12,7 +11,6 @@ type ApartmentType = {
   noOfBooked: number;
 };
 function Apartments() {
-  const router = useRouter();
   const apartmentList: ApartmentType[] = [
     {
       profile: "/imgs/oneBed.webp",
@@ -35,12 +33,12 @@ function Apartments() {
     <div className="flex flex-col gap-6">
       <div className="flex justify-end gap-4">
         <CalendarPopover />
-        <button
-          onClick={() => router.push("/Admin/apartments/create-apartment")}
+        <Link
+          href={"/Admin/apartments/create-apartment"}
           className="bg-secondary rounded-md text-white p-2"
         >
           Add apartment
-        </button>
+        </Link>
       </div>
 
       {apartmentList.map((item, index) => (

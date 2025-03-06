@@ -33,14 +33,14 @@ const DataTable = <TData, TValue>({
   });
 
   return (
-    <div className="w-full border rounded-md shadow-sm">
-      <Table>
+    <div className="w-full border bg-white rounded-md shadow-sm">
+      <Table className="bg-white ">
         {/* Table Header */}
-        <TableHeader>
+        <TableHeader className="bg-[#E9EBEFC7] h-[69px]">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <TableHead key={header.id}>
+                <TableHead key={header.id} className="text-[#898989] font-[500] text-[14px] p-[24px]">
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -57,9 +57,15 @@ const DataTable = <TData, TValue>({
         <TableBody>
           {table.getRowModel().rows.length > 0 ? (
             table.getRowModel().rows.map((row) => (
-              <TableRow key={row.id}>
+              <TableRow
+                key={row.id}
+                className="h-[72px] borber-b border-[#D9D9D9]"
+              >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
+                  <TableCell
+                    key={cell.id}
+                    className="text-[#4A4A4A] font-[500] text-[16px] p-[24px]"
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
