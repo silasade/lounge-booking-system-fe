@@ -1,105 +1,89 @@
-import axios, {
-  AxiosResponse,
-  AxiosRequestConfig,
-  RawAxiosRequestHeaders,
-} from "axios";
 import { baseUrl } from "./constants";
-import { SuccessResponse, ErrorResponse } from "./types";
+import Router from "next/router"; // Next.js router for redirection
 
-// Utility to serialize search params
-const isSerializable = (
-  obj: Record<string, unknown>
-): obj is Record<string, string | number | boolean> => {
-  return Object.values(obj).every(
-    (value) =>
-      typeof value === "string" ||
-      typeof value === "number" ||
-      typeof value === "boolean"
-  );
-};
-
-// Function to convert HeadersInit to RawAxiosRequestHeaders
-const convertHeaders = (
-  headers: HeadersInit | undefined
-): RawAxiosRequestHeaders => {
-  const convertedHeaders: RawAxiosRequestHeaders = {};
-
-  if (headers) {
-    if (headers instanceof Headers) {
-      headers.forEach((value, key) => {
-        convertedHeaders[key] = value;
-      });
-    } else if (Array.isArray(headers)) {
-      headers.forEach(([key, value]) => {
-        convertedHeaders[key] = value;
-      });
-    } else {
-      Object.assign(convertedHeaders, headers);
-    }
+const handleError = async (response: Response) => {
+  if (response.status === 401) {
+    Router.push("/login"); // Redirect on unauthorized access
+    throw new Error("Unauthorized - Redirecting to login");
   }
-
-  return convertedHeaders;
+  if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+  return response.json();
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type SWRFetcher<T> = {
-  token?: string;
-  url: string;
-  requestOption?: RequestInit;
-  searchParams?: Record<string, unknown>;
-};
-
-const swrFetcher = async <T>({
-  token,
-  url,
-  requestOption,
-  searchParams,
-}: SWRFetcher<T>): Promise<SuccessResponse<T>> => {
+const getData = async (path: string, token?: string) => {
   try {
-    // Construct URL with Search Params
-    const queryString =
-      searchParams && isSerializable(searchParams)
-        ? `?${isSerializable(searchParams)}`
-        : "";
-    const requestUrl = `${baseUrl}/${url}${queryString}`;
-
-    // Convert HeadersInit to RawAxiosRequestHeaders
-    const headers = {
-      ...convertHeaders(requestOption?.headers),
-      ...(token && { Authorization: `Bearer ${token}` }),
-    };
-
-    // Map RequestInit to AxiosRequestConfig
-    const axiosConfig: AxiosRequestConfig = {
-      headers,
-      method: requestOption?.method || "GET",
-      data: requestOption?.body, // Only relevant for POST/PUT/PATCH
-    };
-
-    const response: AxiosResponse<SuccessResponse<T>> = await axios(
-      requestUrl,
-      axiosConfig
-    );
-
-    return response.data; // Return SuccessResponse<T>
-  } catch (error) {
-    if (axios.isAxiosError(error) && error.response) {
-      // Construct ErrorResponse from Axios error
-      const err: ErrorResponse = {
-        statusCode: error.response.status,
-        message: error.response.data?.message || "An error occurred",
-      };
-      console.error("Axios error:", err);
-      throw err;
-    } else {
-      const unexpectedError: ErrorResponse = {
-        statusCode: 500,
-        message: "An unexpected error occurred",
-      };
-      console.error("Unexpected error:", unexpectedError);
-      throw unexpectedError;
+    const headers = new Headers();
+    if (token) {
+      headers.append("Authorization", `Bearer ${token}`);
     }
+
+    const response = await fetch(`${baseUrl}/${path}`, { headers });
+    return handleError(response);
+  } catch (error) {
+    console.error("getData Error:", error);
+    return null;
   }
 };
 
-export { swrFetcher };
+const createData = async <T>(path: string, contentType: string, data?: T, token?: string) => {
+  try {
+    const headers = new Headers();
+    if (token) {
+      headers.append("Authorization", `Bearer ${token}`);
+    }
+    headers.append("Content-Type", contentType);
+
+    const response = await fetch(`${baseUrl}/${path}`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    });
+
+    return handleError(response);
+  } catch (error) {
+    console.error("createData Error:", error);
+    return null;
+  }
+};
+
+const deleteData = async (path: string, token?: string) => {
+  try {
+    const headers = new Headers();
+    if (token) {
+      headers.append("Authorization", `Bearer ${token}`);
+    }
+
+    const response = await fetch(`${baseUrl}/${path}`, {
+      method: "DELETE",
+      headers,
+    });
+
+    return handleError(response);
+  } catch (error) {
+    console.error("deleteData Error:", error);
+    return null;
+  }
+};
+
+const updateData = async <T>(path: string, contentType: string, data?: T, token?: string) => {
+  try {
+    const headers = new Headers();
+    if (token) {
+      headers.append("Authorization", `Bearer ${token}`);
+    }
+    headers.append("Content-Type", contentType);
+
+    const response = await fetch(`${baseUrl}/${path}`, {
+      method: "PUT",
+      headers,
+      body: JSON.stringify(data),
+    });
+
+    return handleError(response);
+  } catch (error) {
+    console.error("updateData Error:", error);
+    return null;
+  }
+};
+
+export { getData, createData, deleteData, updateData };

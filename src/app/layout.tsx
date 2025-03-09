@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Roboto } from "next/font/google";
 import "./globals.css";
+import Provider from "./_global_components/Provider";
 const montserrat = Montserrat({
   variable: "--montserrat",
   subsets: ["latin"],
@@ -18,7 +19,6 @@ export const metadata: Metadata = {
     "Indulge in refined apartments or unwind with our exclusive pool services – tailored to your needs",
   category: "Business",
   manifest: "/manifest.json",
-
 };
 export const viewport = {
   themeColor: "#ffffff", // Use a valid hex color (e.g., white)
@@ -34,7 +34,7 @@ export default function RootLayout({
         <meta name="color-scheme" content="light" />
       </head>
       <body className={`${montserrat.variable} ${roboto.variable} antialiased`}>
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

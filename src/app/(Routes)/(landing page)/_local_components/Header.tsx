@@ -1,9 +1,9 @@
 "use client";
-import Popovers from "@/app/_global_components/Popover";
 import Link from "next/link";
 import React, { useState } from "react";
 import BookingForm from "./BookingForm";
 import { Menu } from "@/app/_global_components/icons";
+import PopOver from "@/app/_global_components/Shad ui/PopOver";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -31,21 +31,21 @@ function Header() {
         >
           Home
         </Link>
-        <Popovers
-          trigger={"hover"}
-          placement="bottomLeft"
-          content={
-            <BookingForm
-              handleMenu={() => {
-                setOpenMenu(false);
-              }}
-            />
+
+        <PopOver
+        className="p-0 pr-0 w-full md:w-64"
+          trigger={
+            <span className="cursor-pointer hover:text-white">
+              Check your booking
+            </span>
           }
         >
-          <span className="cursor-pointer hover:text-white">
-            Check your booking
-          </span>
-        </Popovers>
+          <BookingForm
+            handleMenu={() => {
+              setOpenMenu(false);
+            }}
+          />
+        </PopOver>
       </div>
       <div
         className="cursor-pointer absolute top-2 right-5 md:hidden"

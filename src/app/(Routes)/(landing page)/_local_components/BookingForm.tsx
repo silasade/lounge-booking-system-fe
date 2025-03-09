@@ -36,7 +36,6 @@ function BookingForm({ handleMenu }: prop) {
     if (handleMenu) {
       handleMenu();
     }
-    
   };
 
   const bookingDetails: DetailsType = {
@@ -67,12 +66,11 @@ function BookingForm({ handleMenu }: prop) {
     pdf.save("Nana-Lounge-Booking-Details.pdf");
   };
   return (
-    <div>
+    <>
       <Modals
         centered
         open={open}
         handleCancel={handleClose}
-
         title={
           <div className="w-100 border-b border-[#B3B3B3] pb-2">
             <h4 className="text-center text-[20px] md:text-[27px] font-[700] text-secondary">
@@ -83,7 +81,7 @@ function BookingForm({ handleMenu }: prop) {
       >
         <div
           id="booking-details"
-          className="flex flex-col gap-6 max-h-[100%] md:max-h-[400px] max-w-[100%] min-w-[100%] md:min-w-[1] md:w-[550px] overflow-y-auto p-[0px] md:p-4"
+          className="flex flex-col gap-6 max-h-[100%] md:max-h-[400px] max-w-[320px] w-[320px] min-w-[320px] md:min-w-[550px] md:w-[550px] md:max-w-[550px] overflow-y-auto p-[0px] md:p-4"
         >
           <div className="flex flex-row items-center justify-between w-full">
             <h5 className="text-[14px] sm:text-[16px] md:text-[20px] font-[400]">
@@ -146,13 +144,13 @@ function BookingForm({ handleMenu }: prop) {
           <div className="flex flex-col items-center gap-4  w-full">
             <button
               onClick={handleDownload}
-              className="w-[100%] bg-primary h-[40px] md:h-[50px] font-[400] text-[14px] sm:text-[16px] md:text-[20px] rounded-lg text-white"
+              className="w-full bg-primary h-[40px] md:h-[50px] font-[400] text-[14px] sm:text-[16px] md:text-[20px] rounded-lg text-white"
             >
               Download
             </button>
             <button
               onClick={handleClose}
-              className="w-[100%] bg-[#E4E4E4] h-[40px] md:h-[50px] font-[400] text-[14px] sm:text-[16px] md:text-[20px] rounded-lg text-[#4A4A4A]"
+              className="w-full bg-[#E4E4E4] h-[40px] md:h-[50px] font-[400] text-[14px] sm:text-[16px] md:text-[20px] rounded-lg text-[#4A4A4A]"
             >
               Cancel
             </button>
@@ -160,7 +158,7 @@ function BookingForm({ handleMenu }: prop) {
         </div>
       </Modals>
       <form
-        className="flex flex-col gap-2 w-full md:w-64 bg-[#0000002B] rounded-lg p-4"
+        className="flex flex-col gap-2 bg-[#0000002B] rounded-lg p-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <input
@@ -178,7 +176,7 @@ function BookingForm({ handleMenu }: prop) {
           View Booking
         </Button>
       </form>
-    </div>
+    </>
   );
 }
 
