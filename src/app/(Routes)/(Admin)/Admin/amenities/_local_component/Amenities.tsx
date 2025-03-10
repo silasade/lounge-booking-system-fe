@@ -62,7 +62,7 @@ function Amenities() {
       cell: ({ row }) => 
         <PopOver
           trigger={<Ellipsis />}
-          className="flex flex-col rounded-lg h-fit p-0"
+          className="flex flex-col rounded-lg h-fit p-0 w-[260px]"
         >
           <h5
             onClick={() => handleID(row.original.id)}

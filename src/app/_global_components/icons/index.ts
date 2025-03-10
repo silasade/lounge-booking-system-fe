@@ -26,4 +26,6 @@ export { default as User } from "./User";
 export { default as Edit } from "./Edit";
 export { default as Bin } from "./Bin";
 export { default as Filter } from "./Filter";
-export {default as View} from "./Eye"
+export { default as View } from "./Eye";
+export { default as Cycle } from "./Cycle";
+export { default as Settings } from "./AdminSettings";

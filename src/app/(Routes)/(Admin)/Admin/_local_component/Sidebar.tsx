@@ -6,6 +6,7 @@ import {
   Dashboard,
   Exit,
   Expenses,
+  Settings,
 } from "@/app/_global_components/icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,31 +21,40 @@ type Links = {
 function Sidebar() {
   const pathName = usePathname();
   const links: Links[] = [
-    { href: "/Admin", icon: <Dashboard color="#D4A373" />, text: "Dashboard" },
+    {
+      href: "/Admin",
+      icon: <Dashboard color="#D4A373" width={18} height={18} />,
+      text: "Dashboard",
+    },
     {
       href: "/Admin/apartments",
-      icon: <Apartments color="#D4A373" />,
+      icon: <Apartments color="#D4A373" width={18} height={18} />,
       text: "Apartment",
     },
     {
       href: "/Admin/amenities",
-      icon: <Amenities color="#D4A373" />,
+      icon: <Amenities color="#D4A373" width={18} height={18} />,
       text: "Amenities",
     },
     {
       href: "/Admin/expenses",
-      icon: <Expenses color="#D4A373" />,
+      icon: <Expenses color="#D4A373" width={18} height={18} />,
       text: "Expenses",
     },
     {
       href: "/Admin/bookings",
-      icon: <Booking color="#D4A373" />,
+      icon: <Booking color="#D4A373" width={18} height={18} />,
       text: "Booking",
     },
     {
       href: "/Admin/revenue",
-      icon: <Expenses color="#D4A373" />,
+      icon: <Expenses color="#D4A373" width={18} height={18} />,
       text: "Revenue",
+    },
+    {
+      href: "/Admin/manage-admin",
+      icon: <Settings color="#D4A373" width={18} height={18} />,
+      text: "Manage admin",
     },
   ];
 
@@ -59,7 +69,7 @@ function Sidebar() {
           className={`flex items-center gap-3 p-4 text-[#201F1F] text-[16px] font-[500] ${
             pathName.includes(item.href) && index != 0
               ? "bg-[#EAEAEA80] rounded-md"
-              : pathName===(item.href) &&
+              : pathName === item.href &&
                 index == 0 &&
                 "bg-[#EAEAEA80] rounded-md"
           } hover:bg-[#EAEAEA80] rounded-md transition`}

@@ -1,26 +1,24 @@
 "use client";
 import React, { useState } from "react";
 import PopOver from "@/app/_global_components/Shad ui/PopOver";
-import Switchs from "@/app/_global_components/Shad ui/Switchs";
 import DataTable from "@/app/_global_components/Shad ui/Tables";
 import { ColumnDef } from "@tanstack/react-table";
 import { Ellipsis } from "lucide-react";
-import Link from "next/link";
-import { Bin, Edit } from "@/app/_global_components/icons";
+import { Bin, Edit, Filter } from "@/app/_global_components/icons";
 import Modals from "@/app/_global_components/Modal";
-import PoolForm from "./PoolForm";
+
+import CreateRole from "./CreateRole";
 
 type ColumnsType = {
   id: string;
-  price: number;
-  status: boolean;
-  guestCapacity: string;
+  name: string;
+  permissions: string[];
+  users: number;
 };
 
-function PoolService() {
+function RoleTable() {
   const [open, setOpen] = useState<boolean>(false);
   const [id, setID] = useState<string>("");
-
   const handleCancel = () => {
     setOpen((prev) => !prev);
   };
@@ -28,46 +26,51 @@ function PoolService() {
     setID(id);
     handleCancel();
   };
-  const poolService: ColumnsType[] = [
-    { id: "1", guestCapacity: "1-5 guests: ₦5,000", price: 1000, status: true },
+  const roles: ColumnsType[] = [
+    {
+      id: "1",
+      name: "Super admin",
+      users: 1,
+      permissions: ["Full access"],
+    },
     {
       id: "2",
-      guestCapacity: "6-10 guests: ₦5,000",
-      price: 1200,
-      status: false,
+      name: "Admin",
+      users: 3,
+      permissions: ["Manage bookings", "Manage amenities", "Manage apartment"],
     },
     {
       id: "3",
-      guestCapacity: " 10-15 guests: ₦5,000",
-      price: 1300,
-      status: true,
-    },
-    {
-      id: "4",
-      guestCapacity: "15-20 guests: ₦5,000",
-      price: 1000,
-      status: false,
+      name: "Employee",
+      users: 4,
+      permissions: ["View bookings", "Process payments"],
     },
   ];
 
   const columns: ColumnDef<ColumnsType>[] = [
     {
-      accessorKey: "price",
-      header: "Price(per hour)",
-      cell: ({ getValue }) => (
-        <h6>&#8358;&nbsp;{(getValue() as number).toLocaleString()}</h6>
-      ),
-    },
-    {
-      accessorKey: "guestCapacity",
-      header: "Guest Capacity",
+      accessorKey: "name",
+      header: "Role name",
       cell: ({ getValue }) => <h6>{getValue() as string}</h6>,
     },
     {
-      accessorKey: "status",
-      header: "Status",
-      cell: ({ row }) => (
-        <Switchs isChecked={row.original.status} id={row.original.id} />
+      accessorKey: "permissions",
+      header: "Permissions Assigned",
+      cell: ({ getValue }) => {
+        const value = getValue();
+        return (
+          <h6>{Array.isArray(value) ? value.join(", ") : String(value)}</h6>
+        );
+      },
+    },
+
+    {
+      accessorKey: "users",
+      header: "Users assigned",
+      cell: ({ getValue }) => (
+        <h6>{`${getValue() as number} ${
+          (getValue() as number) > 1 ? "Users" : "User"
+        }`}</h6>
       ),
     },
     {
@@ -97,24 +100,32 @@ function PoolService() {
     <>
       <Modals handleCancel={handleCancel} open={open}>
         <div className="w-[500px]">
-          <PoolForm handleCancel={handleCancel} id={id} />
+          <CreateRole handleCancel={handleCancel} id={id} />
         </div>
-        ;
       </Modals>
       <div className="flex flex-col gap-5">
         <div className="flex justify-between items-center">
-          <h3 className="text-[24px] font-[600]">Pool Services</h3>
-          <Link
-            href="/Admin/amenities/create-pool"
-            className="bg-secondary rounded-md text-white p-2"
-          >
-            Add swimming pool
-          </Link>
+          <h3 className="text-[24px] font-[600]">
+            Role-Based Access Control (RBAC)
+          </h3>
+          <div className="flex flex-row gap-2 items-center">
+            <button
+              onClick={handleCancel}
+              className="bg-secondary rounded-md text-white p-2"
+            >
+              Create role
+            </button>
+
+            <div className="cursor-pointer flex items-center rounded-md justify-start gap-2 p-2 border border-[#E4E4E4] text-[14px] font-[400] text-[#4A4A4A]">
+              <Filter color="#B3B3B3" />
+              Filter
+            </div>
+          </div>
         </div>
-        <DataTable columns={columns} data={poolService} />
+        <DataTable columns={columns} data={roles} />
       </div>
     </>
   );
 }
 
-export default PoolService;
+export default RoleTable;

@@ -129,7 +129,7 @@ function BookingTable() {
             getValue() === "Cancelled"
               ? "text-color_error bg-color_error"
               : "bg-color_success text-color-success"
-          } bg-opacity-10 rounded-full w-[80px] text-center text-[12px] font-[600] flex items-center justify-center h-[30px]`}
+          } bg-opacity-10 rounded-full w-[80px] text-center text-[14px] font-[600] flex items-center justify-center h-[30px]`}
         >
           {getValue() as string}
         </h6>
@@ -146,7 +146,7 @@ function BookingTable() {
               : getValue() === "Paid"
               ? "bg-color_success text-color-success"
               : "bg-color_pending text-color_pending"
-          } bg-opacity-10 rounded-full w-[80px] text-center text-[12px] font-[600] flex items-center justify-center h-[30px]`}
+          } bg-opacity-10 rounded-full w-[80px] text-center text-[14px] font-[600] flex items-center justify-center h-[30px]`}
         >
           {getValue() as string}
         </h6>
@@ -157,7 +157,7 @@ function BookingTable() {
       cell: ({ row }) => (
         <PopOver
           trigger={<Ellipsis />}
-          className="flex flex-col rounded-lg h-fit p-0"
+          className="flex flex-col rounded-lg h-fit p-0 w-[260px]"
         >
           <h5
             onClick={() =>
