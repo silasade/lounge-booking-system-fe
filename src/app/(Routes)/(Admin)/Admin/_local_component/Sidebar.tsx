@@ -37,7 +37,7 @@ function Sidebar() {
       text: "Expenses",
     },
     {
-      href: "/Admin/booking",
+      href: "/Admin/bookings",
       icon: <Booking color="#D4A373" />,
       text: "Booking",
     },

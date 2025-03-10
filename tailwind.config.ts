@@ -38,6 +38,9 @@ export default {
         hourBg: "#F4D03F",
         bungBg: "#3498DB",
         checkBg: "#27AE60",
+        color_error: "#E74C3C",
+        color_success: "#27AE60",
+        color_pending: "#FFA500",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -61,7 +64,6 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        
       },
       borderRadius: {
         lg: "var(--radius)",

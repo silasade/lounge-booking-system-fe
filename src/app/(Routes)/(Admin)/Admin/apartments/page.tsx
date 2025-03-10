@@ -2,6 +2,7 @@ import React from "react";
 import ApartmentCard from "./_local-components/ApartmentCard";
 import CalendarPopover from "./_local-components/CalendarPopover";
 import Link from "next/link";
+import { Metadata } from "next";
 type ApartmentType = {
   profile: string;
   name: string;
@@ -9,6 +10,9 @@ type ApartmentType = {
   booked: boolean;
   noOfReserved: number;
   noOfBooked: number;
+};
+export const metadata: Metadata = {
+  title: "Admin | Apartments",
 };
 function Apartments() {
   const apartmentList: ApartmentType[] = [

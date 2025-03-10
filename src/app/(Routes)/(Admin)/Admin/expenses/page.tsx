@@ -1,10 +1,14 @@
 import React from "react";
 import Card from "./_local_component/Card";
 import ExpenseTable from "./_local_component/ExpenseTable";
+import { Metadata } from "next";
 type CardProp = {
   name: string;
   price: number;
   type: string;
+};
+export const metadata: Metadata = {
+  title: "Admin | Expenses",
 };
 function Expenses() {
   const cards: CardProp[] = [
