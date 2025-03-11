@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Error() {
   return (
-    <div className="grid place-items-center w-full min-h-[80vh] p-5 md:p-0">
+    <div className="grid place-items-center w-full min-h-[85vh] p-5 md:p-0">
       <div className="flex flex-col gap-8 w-full md:w-3/4 items-center">
         <div className="flex flex-col gap-5 text-center">
           <h3 className="font-[700] text-[20px] md:text-[32px] lg:text-[40px] ">
