@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import PopOver from "@/app/_global_components/Shad ui/PopOver";
-import DataTable from "@/app/_global_components/Shad ui/Tables";
+import PopOver from "@/app/_global_components/shadcn-ui/PopOver";
+import DataTable from "@/app/_global_components/shadcn-ui/Tables";
 import { ColumnDef } from "@tanstack/react-table";
 import { Ellipsis } from "lucide-react";
 import { Bin, Edit, Filter } from "@/app/_global_components/icons";

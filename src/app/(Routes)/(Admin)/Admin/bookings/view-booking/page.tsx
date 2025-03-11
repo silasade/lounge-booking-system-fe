@@ -1,6 +1,6 @@
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
 function Page() {
-  redirect("/Admin/bookings/view-bookings")
+  redirect("/admin/bookings/view-bookings");
 }
 
-export default Page
+export default Page;

@@ -22,37 +22,37 @@ function Sidebar() {
   const pathName = usePathname();
   const links: Links[] = [
     {
-      href: "/Admin",
+      href: "/admin",
       icon: <Dashboard color="#D4A373" width={18} height={18} />,
       text: "Dashboard",
     },
     {
-      href: "/Admin/apartments",
+      href: "/admin/apartments",
       icon: <Apartments color="#D4A373" width={18} height={18} />,
       text: "Apartment",
     },
     {
-      href: "/Admin/amenities",
+      href: "/admin/amenities",
       icon: <Amenities color="#D4A373" width={18} height={18} />,
       text: "Amenities",
     },
     {
-      href: "/Admin/expenses",
+      href: "/admin/expenses",
       icon: <Expenses color="#D4A373" width={18} height={18} />,
       text: "Expenses",
     },
     {
-      href: "/Admin/bookings",
+      href: "/admin/bookings",
       icon: <Booking color="#D4A373" width={18} height={18} />,
       text: "Booking",
     },
     {
-      href: "/Admin/revenue",
+      href: "/admin/revenue",
       icon: <Expenses color="#D4A373" width={18} height={18} />,
       text: "Revenue",
     },
     {
-      href: "/Admin/manage-admin",
+      href: "/admin/manage-admin",
       icon: <Settings color="#D4A373" width={18} height={18} />,
       text: "Manage admin",
     },

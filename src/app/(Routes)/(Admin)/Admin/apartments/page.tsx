@@ -38,7 +38,7 @@ function Apartments() {
       <div className="flex justify-end gap-4">
         <CalendarPopover />
         <Link
-          href={"/Admin/apartments/create-apartment"}
+          href={"/admin/apartments/create-apartment"}
           className="bg-secondary rounded-md text-white p-2"
         >
           Add apartment

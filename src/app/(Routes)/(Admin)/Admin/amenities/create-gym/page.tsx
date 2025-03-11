@@ -1,6 +1,6 @@
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
 function Page() {
-  redirect("/Admin/amenities")
+  redirect("/admin/amenities");
 }
 
-export default Page
+export default Page;

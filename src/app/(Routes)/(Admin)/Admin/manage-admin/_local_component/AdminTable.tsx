@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import PopOver from "@/app/_global_components/Shad ui/PopOver";
-import Switchs from "@/app/_global_components/Shad ui/Switchs";
-import DataTable from "@/app/_global_components/Shad ui/Tables";
+import PopOver from "@/app/_global_components/shadcn-ui/PopOver";
+import Switchs from "@/app/_global_components/shadcn-ui/Switchs";
+import DataTable from "@/app/_global_components/shadcn-ui/Tables";
 import { ColumnDef } from "@tanstack/react-table";
 import { Ellipsis } from "lucide-react";
 import { Bin, Cycle, Edit, Filter } from "@/app/_global_components/icons";
 import Modals from "@/app/_global_components/Modal";
-import CreateAdmin from "./CreateAdmin";
+import CreateAdmin from "../../../../../_global_components/CreateAdmin";
 import ResetPassword from "./ResetPassword";
 
 type ColumnsType = {
@@ -128,7 +128,7 @@ function AdminTable() {
             Edit
           </h5>
           <h5
-            onClick={() => handleID(row.original.id)}
+            onClick={handlePasswordForm}
             className="gap-2 cursor-pointer pt-[12px] pr-[20px] pb-[12px] pl-[20px] flex items-center border-b border-[#E1E1E1] text-[#959595] font-[400] text-[14px] h-[48px] hover:bg-[#FFF1E3] hover:text-secondary"
           >
             <Cycle width={17} height={17} />
@@ -147,7 +147,7 @@ function AdminTable() {
     <>
       <Modals handleCancel={handlePasswordForm} open={openPasswordForm}>
         <div className="w-[500px]">
-          <ResetPassword handleCancel={handleCancel} />
+          <ResetPassword handleCancel={handlePasswordForm} />
         </div>
       </Modals>
       <Modals handleCancel={handleCancel} open={open}>
@@ -163,10 +163,10 @@ function AdminTable() {
               onClick={handleCancel}
               className="bg-secondary rounded-md text-white p-2"
             >
-              Add expenses
+              Add admin
             </button>
 
-            <div className="cursor-pointer flex items-center gap-2 p-2 border border-[#E4E4E4] text-[14px] font-[400] text-[#4A4A4A]">
+            <div className="cursor-pointer flex items-center rounded-md gap-2 p-2 border border-[#E4E4E4] text-[14px] font-[400] text-[#4A4A4A]">
               <Filter color="#B3B3B3" />
               Filter by status
             </div>

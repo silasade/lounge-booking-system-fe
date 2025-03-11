@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import DataTable from "@/app/_global_components/Shad ui/Tables";
+import DataTable from "@/app/_global_components/shadcn-ui/Tables";
 import { ColumnDef } from "@tanstack/react-table";
 import { Filter } from "@/app/_global_components/icons";
 type ColumnsType = {
@@ -93,13 +93,11 @@ function ActivityLogs() {
   ];
 
   return (
-    <div className="flex flex-col gap-5">
+    <div id="admin-logs" className="flex flex-col gap-5">
       <div className="flex justify-between items-center">
-        <h3 className="text-[24px] font-[600]">
-         Activity logs
-        </h3>
+        <h3 className="text-[24px] font-[600]">Activity logs</h3>
         <div className="flex flex-row gap-2 items-center">
-          <div className="cursor-pointer flex items-center gap-2 p-2 border border-[#E4E4E4] text-[14px] font-[400] text-[#4A4A4A]">
+          <div className="cursor-pointer flex items-center rounded-md gap-2 p-2 border border-[#E4E4E4] text-[14px] font-[400] text-[#4A4A4A]">
             <Filter color="#B3B3B3" />
             Filter
           </div>

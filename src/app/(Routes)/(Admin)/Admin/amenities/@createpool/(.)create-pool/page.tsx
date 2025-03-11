@@ -11,11 +11,11 @@ function CreatePool() {
   const router = useRouter();
   const handleCancel = useCallback(() => {
     setOpen(false);
-    router.push("/Admin/amenities", { scroll: false });
+    router.push("/admin/amenities", { scroll: false });
   }, [router]);
 
   useEffect(() => {
-    if (pathName === "/Admin/amenities/create-pool") {
+    if (pathName === "/admin/amenities/create-pool") {
       return setOpen(true);
     } else {
       setOpen(false);

@@ -1,7 +1,7 @@
 "use client";
 import { Bin, View } from "@/app/_global_components/icons";
-import PopOver from "@/app/_global_components/Shad ui/PopOver";
-import DataTable from "@/app/_global_components/Shad ui/Tables";
+import PopOver from "@/app/_global_components/shadcn-ui/PopOver";
+import DataTable from "@/app/_global_components/shadcn-ui/Tables";
 import { ColumnDef } from "@tanstack/react-table";
 import { Ellipsis } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -161,7 +161,7 @@ function BookingTable() {
         >
           <h5
             onClick={() =>
-              router.push(`/Admin/bookings/view-booking?id=${row.original.id}`)
+              router.push(`/admin/bookings/view-booking?id=${row.original.id}`)
             }
             className="gap-2 cursor-pointer pt-[12px] pr-[20px] pb-[12px] pl-[20px] flex items-center border-b border-[#E1E1E1] text-[#959595] font-[400] text-[14px] h-[48px] hover:bg-[#FFF1E3] hover:text-secondary"
           >

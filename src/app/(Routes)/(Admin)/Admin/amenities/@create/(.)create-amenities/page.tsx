@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Modals from "@/app/_global_components/Modal";
 import { usePathname, useRouter } from "next/navigation";
@@ -11,11 +11,11 @@ function CreateAmenities() {
   const router = useRouter();
   const handleCancel = useCallback(() => {
     setOpen(false);
-    router.push("/Admin/amenities", { scroll: false });
+    router.push("/admin/amenities", { scroll: false });
   }, [router]);
 
   useEffect(() => {
-    if (pathName === "/Admin/amenities/create-amenities") {
+    if (pathName === "/admin/amenities/create-amenities") {
       return setOpen(true);
     } else {
       setOpen(false);

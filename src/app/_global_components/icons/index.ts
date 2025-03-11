@@ -29,3 +29,6 @@ export { default as Filter } from "./Filter";
 export { default as View } from "./Eye";
 export { default as Cycle } from "./Cycle";
 export { default as Settings } from "./AdminSettings";
+export {default as Clock} from "./Activity"
+export {default as Update} from "./Update"
+export {default as Checked} from "./Checked"

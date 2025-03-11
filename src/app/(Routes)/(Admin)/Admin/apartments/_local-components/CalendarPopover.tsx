@@ -1,6 +1,6 @@
 import { Reserved } from "@/app/_global_components/icons";
-import CalendarWrapper from "@/app/_global_components/Shad ui/CalendarWrapper";
-import PopOver from "@/app/_global_components/Shad ui/PopOver";
+import CalendarWrapper from "@/app/_global_components/shadcn-ui/CalendarWrapper";
+import PopOver from "@/app/_global_components/shadcn-ui/PopOver";
 import React from "react";
 
 function CalendarPopover() {

@@ -9,11 +9,11 @@ import Card from "./_local_component/Card";
 import ProgressCircle from "./_local_component/ProgressCircle";
 import BarChart from "./_local_component/BarCharts";
 import BookingTrends from "./_local_component/BookingTrends";
-import CalendarWrapper from "../../../_global_components/Shad ui/CalendarWrapper";
+import CalendarWrapper from "../../../_global_components/shadcn-ui/CalendarWrapper";
 import { Metadata } from "next";
-export const metadata:Metadata={
+export const metadata: Metadata = {
   title: "Admin | Dashboard",
-}
+};
 function Overview() {
   return (
     <div className="flex flex-col gap-4">

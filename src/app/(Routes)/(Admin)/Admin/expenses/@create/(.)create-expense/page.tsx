@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Modals from "@/app/_global_components/Modal";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
@@ -10,11 +10,11 @@ function CreateExpense() {
   const router = useRouter();
   const handleCancel = useCallback(() => {
     setOpen(false);
-    router.push("/Admin/expenses", { scroll: false });
+    router.push("/admin/expenses", { scroll: false });
   }, [router]);
 
   useEffect(() => {
-    if (pathName === "/Admin/expenses/create-expense") {
+    if (pathName === "/admin/expenses/create-expense") {
       return setOpen(true);
     } else {
       setOpen(false);
@@ -27,7 +27,7 @@ function CreateExpense() {
       </div>
       ;
     </Modals>
-  );;
+  );
 }
 
 export default CreateExpense;

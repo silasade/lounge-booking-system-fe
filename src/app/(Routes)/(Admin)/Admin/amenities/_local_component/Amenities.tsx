@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import PopOver from "@/app/_global_components/Shad ui/PopOver";
-import Switchs from "@/app/_global_components/Shad ui/Switchs";
-import DataTable from "@/app/_global_components/Shad ui/Tables";
+import PopOver from "@/app/_global_components/shadcn-ui/PopOver";
+import Switchs from "@/app/_global_components/shadcn-ui/Switchs";
+import DataTable from "@/app/_global_components/shadcn-ui/Tables";
 import { ColumnDef } from "@tanstack/react-table";
 import { Ellipsis } from "lucide-react";
 import Link from "next/link";
@@ -59,7 +59,7 @@ function Amenities() {
     },
     {
       header: "Actions",
-      cell: ({ row }) => 
+      cell: ({ row }) => (
         <PopOver
           trigger={<Ellipsis />}
           className="flex flex-col rounded-lg h-fit p-0 w-[260px]"
@@ -76,7 +76,7 @@ function Amenities() {
             Delete
           </h5>
         </PopOver>
-      ,
+      ),
     },
   ];
 
@@ -93,7 +93,7 @@ function Amenities() {
         <div className="flex justify-between items-center">
           <h3 className="text-[24px] font-[600]">Amenities</h3>
           <Link
-            href="/Admin/amenities/create-amenities"
+            href="/admin/amenities/create-amenities"
             className="bg-secondary rounded-md text-white p-2"
           >
             Add amenities

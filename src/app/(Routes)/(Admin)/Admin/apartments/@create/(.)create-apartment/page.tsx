@@ -11,11 +11,11 @@ function CreateApartment() {
   const handleCancel = useCallback(() => {
     setOpen(false);
     setTimeout(() => {
-      router.push("/Admin/apartments", { scroll: false });
+      router.push("/admin/apartments", { scroll: false });
     }, 100); // Small delay to ensure state is updated first
-  },[router]);
+  }, [router]);
   useEffect(() => {
-    if (pathName === "/Admin/apartments/create-apartment") {
+    if (pathName === "/admin/apartments/create-apartment") {
       return setOpen(true);
     } else {
       setOpen(false);

@@ -1,4 +1,5 @@
 "use client";
+import { Checked } from "@/app/_global_components/icons";
 import Modals from "@/app/_global_components/Modal";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -12,19 +13,19 @@ function ViewBooking() {
   const handleCancel = () => {
     setOpen(false);
     setTimeout(() => {
-      router.push("/Admin/bookings", { scroll: false });
+      router.push("/admin/bookings", { scroll: false });
     }, 100);
   };
 
   useEffect(() => {
-    if (pathName === "/Admin/bookings/view-booking") {
+    if (pathName === "/admin/bookings/view-booking") {
       return setOpen(true);
     }
     setOpen(false);
   }, [pathName]);
   return (
     <Modals open={open} handleCancel={handleCancel}>
-      <div className="flex flex-col gap-6 w-[500px]">
+      <div className="flex flex-col gap-6 w-[500px] h-[70vh] overflow-y-auto">
         <div className="flex flex-col gap-4">
           <h4 className="text-[16px] font-[600]">Booking information</h4>
           <div className="flex flex-row justify-between items-center">
@@ -65,6 +66,65 @@ function ViewBooking() {
           </div>
         </div>
         <hr className="border-[#E4E4E4]" />
+        <div className="flex flex-col gap-4">
+          <h4 className="text-[16px] font-[600]">Selected amenities</h4>
+          <div className="flex flex-row flex-wrap justify-between items-center">
+            <div className="flex flex-col gap-2 ">
+              <h5 className="text-[14px] font-[500]">
+                {" "}
+                <Checked /> <span>24/7 Power</span>{" "}
+              </h5>
+              <p className="text-[12px] font-[400]">Price: ₦₦</p>
+            </div>
+            <div className="flex flex-col gap-2 ">
+              <h5 className="text-[14px] font-[500] flex flex-row items-center">
+                {" "}
+                <Checked /> <span>Wifi</span>{" "}
+              </h5>
+              <p className="text-[12px] font-[400]">Price: ₦₦</p>
+            </div>
+            <div className="flex flex-col gap-2 ">
+              <h5 className="text-[14px] font-[500]">
+                {" "}
+                <Checked /> <span>Breakfast+Lunch+Dinner</span>{" "}
+              </h5>
+              <p className="text-[12px] font-[400]">Price: ₦₦</p>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-4">
+          <h4 className="text-[16px] font-[600]">Pool access(swimming pool)</h4>
+          <div className="flex flex-row justify-between items-center">
+            <h6 className="text-[14px] font-[500] text-[#4A4A4A]">
+              No of Hours
+            </h6>
+            <p className="text-[16px] font-[500]">03</p>
+          </div>
+          <div className="flex flex-row justify-between items-center">
+            <h6 className="text-[14px] font-[500] text-[#4A4A4A]">
+              No of Guests
+            </h6>
+            <p className="text-[16px] font-[500]">02</p>
+          </div>
+        </div>
+        <hr className="border-[#E4E4E4]" />
+        <div className="flex flex-col gap-4">
+          <h4 className="text-[16px] font-[600]">Gym access</h4>
+          <div className="flex flex-row justify-between items-center">
+            <h6 className="text-[14px] font-[500] text-[#4A4A4A]">
+              No of Hours
+            </h6>
+            <p className="text-[16px] font-[500]">03</p>
+          </div>
+          <div className="flex flex-row justify-between items-center">
+            <h6 className="text-[14px] font-[500] text-[#4A4A4A]">
+              No of Guests
+            </h6>
+            <p className="text-[16px] font-[500]">02</p>
+          </div>
+        </div>
+        <hr className="border-[#E4E4E4]" />
+
         <div className="flex flex-col gap-4">
           <h4 className="text-[16px] font-[600]">Payment details</h4>
           <div className="flex flex-row justify-between items-center">

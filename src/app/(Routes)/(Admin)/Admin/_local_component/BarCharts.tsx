@@ -12,7 +12,15 @@ import {
   ChartData,
   ChartArea,
 } from "chart.js";
-
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import Calendar from "@/app/_global_components/icons/Calendar";
 // Register necessary Chart.js components
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
@@ -67,10 +75,31 @@ const BarChart: React.FC = () => {
   };
 
   return (
-    <div className="w-full min-h-[356px] p-5 rounded-lg flex flex-col">
-      <h3 className="text-center md:text-left text-xl font-semibold mb-4">
-        Occupancy Statistics
-      </h3>
+    <div className="w-full min-h-[356px] p-5 rounded-lg flex flex-col gap-8">
+      <div className="flex justify-between items-center">
+        <h3 className="text-center md:text-left text-xl font-semibold mb-4">
+          Occupancy Statistics
+        </h3>
+        <Select defaultValue="30">
+          <SelectTrigger
+            isArrow={false}
+            className="w-[110px] font-[500] h-[40px] text-[13px] text-[#667085] border border-[#858D9D] rounded-lg flex items-center justify-center gap-2 text-center"
+          >
+            <span>
+              <Calendar />
+            </span>
+            <SelectValue placeholder="Monthly" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="30">Monthly</SelectItem>
+              <SelectItem value="7">Weekly</SelectItem>
+              <SelectItem value="365">Yearly</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+
       <div className="w-full h-[350px]">
         <Bar ref={chartRef} data={data} options={options} />
       </div>

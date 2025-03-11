@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 function Page() {
-  redirect("/Admin/apartments");
+  redirect("/admin/apartments");
 }
 
 export default Page;

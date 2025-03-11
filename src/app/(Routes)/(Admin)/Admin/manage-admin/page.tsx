@@ -1,19 +1,12 @@
 import React from "react";
-import AdminTable from "./_local_component/AdminTable";
-import RoleTable from "./_local_component/RoleTable";
+
 import { Metadata } from "next";
-import ActivityLogs from "./_local_component/ActivityLogs";
+import ManageAdmin from "./indexClientPage";
 export const metadata: Metadata = {
   title: "Admin | Manage Admins",
 };
-function ManageAdmin() {
-  return (
-    <div className="flex flex-col gap-8">
-      <AdminTable />
-      <RoleTable />
-      <ActivityLogs />
-    </div>
-  );
+function Page() {
+  return <ManageAdmin />;
 }
 
-export default ManageAdmin;
+export default Page;

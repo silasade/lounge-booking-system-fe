@@ -13,7 +13,7 @@ export default function Error() {
           </h3>
         </div>
         <Link
-          href={"/Admin"}
+          href={"/admin"}
           className="flex justify-center items-center text-center text-white bg-primary w-full md:w-2/4 rounded-md h-[40px] md:h-[50px] font-[400] text-[16px] md:text-[20px] lg:text-[24px]"
         >
           {" "}

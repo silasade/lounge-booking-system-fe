@@ -95,15 +95,13 @@ const DataTable = <TData, TValue>({
 
       <Pagination className="w-full">
         <PaginationContent className="flex w-full flex-row items-center justify-between p-4">
-          {table.getCanPreviousPage() && (
-            <PaginationItem>
-              <PaginationPrevious
-                href="#"
-                onClick={() => table.previousPage()}
-                aria-disabled={!table.getCanPreviousPage()}
-              />
-            </PaginationItem>
-          )}
+          <PaginationItem>
+            <PaginationPrevious
+              href="#"
+              onClick={() => table.previousPage()}
+              aria-disabled={!table.getCanPreviousPage()}
+            />
+          </PaginationItem>
           <div className="flex items-center flex-row gap-2">
             {[...Array(table.getPageCount())].map((_, index) => (
               <PaginationItem key={index}>

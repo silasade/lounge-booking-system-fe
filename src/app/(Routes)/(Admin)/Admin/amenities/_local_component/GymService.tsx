@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import PopOver from "@/app/_global_components/Shad ui/PopOver";
-import Switchs from "@/app/_global_components/Shad ui/Switchs";
-import DataTable from "@/app/_global_components/Shad ui/Tables";
+import PopOver from "@/app/_global_components/shadcn-ui/PopOver";
+import Switchs from "@/app/_global_components/shadcn-ui/Switchs";
+import DataTable from "@/app/_global_components/shadcn-ui/Tables";
 import { ColumnDef } from "@tanstack/react-table";
 import { Ellipsis } from "lucide-react";
 import Link from "next/link";
@@ -105,7 +105,7 @@ function GymService() {
         <div className="flex justify-between items-center">
           <h3 className="text-[24px] font-[600]">Gym Services</h3>
           <Link
-            href="/Admin/amenities/create-gym"
+            href="/admin/amenities/create-gym"
             className="bg-secondary rounded-md text-white p-2"
           >
             Add gym

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Modals from "@/app/_global_components/Modal";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
@@ -9,11 +9,11 @@ function CreateGym() {
   const router = useRouter();
   const handleCancel = useCallback(() => {
     setOpen(false);
-    router.push("/Admin/amenities", { scroll: false });
+    router.push("/admin/amenities", { scroll: false });
   }, [router]);
 
   useEffect(() => {
-    if (pathName === "/Admin/amenities/create-gym") {
+    if (pathName === "/admin/amenities/create-gym") {
       return setOpen(true);
     } else {
       setOpen(false);
