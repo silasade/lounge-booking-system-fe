@@ -10,6 +10,7 @@ import {
 } from "@/app/_global_components/icons";
 import Modals from "@/app/_global_components/Modal";
 import PopOver from "@/app/_global_components/shadcn-ui/PopOver";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Divider } from "antd";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -78,11 +79,14 @@ function Header() {
           </PopOver>
         </div>
       </header>
-      <Modals handleCancel={handleCancel} open={open}>
-        <div className="w-[500px]">
+      <Dialog open={open} onOpenChange={setOpen}>
+      
+        <DialogContent className="max-w-[96vw] sm:max-w-md rounded-lg h-[96vh] overflow-y-auto bg-white">
+        <DialogTitle className="sr-only">Hidden Title</DialogTitle>
+
           <CreateAdmin handleCancel={handleCancel} />
-        </div>
-      </Modals>
+        </DialogContent>
+      </Dialog>{" "}
       <Modals handleCancel={handleInfo} open={openInfo}>
         <div className="w-[500px] flex flex-col gap-4">
           <div className="flex flex-col gap-2 p-3">
