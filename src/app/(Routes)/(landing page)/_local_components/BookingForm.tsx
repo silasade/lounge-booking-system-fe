@@ -74,7 +74,7 @@ function BookingForm({ handleMenu }: prop) {
     <>
       {" "}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-[96vw] sm:max-w-md rounded-lg h-[96vh] overflow-y-auto bg-white">
+        <DialogContent className="max-w-[96vw] sm:max-w-md rounded-lg h-[60vh] md:h-[96vh] overflow-y-auto bg-white">
           <DialogHeader className="border-b border-[#B3B3B3]">
             <DialogTitle className="text-center text-[20px] md:text-[27px] font-[700] text-secondary">
               {" "}
