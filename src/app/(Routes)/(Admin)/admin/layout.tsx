@@ -10,11 +10,11 @@ function DashboardLayout({ children }: DashboardProp) {
       <aside className="sticky h-full  border-r border-[#B3B3B3]">
         <Sidebar />
       </aside>
-      <div className="h-full w-full bg-[#F8F8F8] ">
-        <div className="w-full z-20 ">
+      <div className="relative h-full w-100 bg-[#F8F8F8] ">
+        <div className="w-full z-20 sticky top-0">
           <Header />
         </div>
-        <div className="p-5 mt-[70px] z-10">{children}</div>
+        <div className="p-5  z-10">{children}</div>
       </div>
     </div>
   );

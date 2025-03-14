@@ -32,11 +32,11 @@ function Login() {
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
           <div className="flex flex-col gap-2 w-full">
-            <h5 className="text-[20px] font-[400] text-[#FBFDFF]">Admin</h5>
+            <h5 className="text-[20px] font-[400] text-[#FBFDFF]">Email</h5>
             <Controller
               control={control}
               name="email"
-              rules={{ required: "Please enter your Id" }}
+              rules={{ required: "Please enter your email address" }}
               render={({ field }) => (
                 <Input
                   {...field}

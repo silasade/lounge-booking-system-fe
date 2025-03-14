@@ -167,9 +167,9 @@ function ExpenseTable() {
   return (
     <>
       <div className="flex flex-col gap-5">
-        <div className="flex justify-between items-center">
+        <div className="flex gap-2 flex-col md:flex-row justify-between md:items-center">
           <h3 className="text-[24px] font-[600]">Expense Revenue </h3>
-          <div className="flex flex-row gap-2 items-center">
+          <div className="flex flex-col md:flex-row gap-2 md:items-center">
             <Link
               href="/admin/expenses/create-expense"
               className="bg-secondary rounded-md text-white p-2"

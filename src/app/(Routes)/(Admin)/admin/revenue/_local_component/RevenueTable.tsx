@@ -129,9 +129,9 @@ function RevenueTable() {
   return (
     <>
       <div className="flex flex-col gap-5">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col gap-2 md:flex-row justify-between md:items-center">
           <h3 className="text-[24px] font-[600]">Total Transactions </h3>
-          <div className="flex flex-row gap-2 items-center">
+          <div className="flex flex-col md:flex-row gap-2 md:items-center">
             <div
               onClick={handleCancel}
               className="bg-secondary rounded-md text-white p-2"

@@ -35,8 +35,8 @@ function Header() {
 
   return (
     <>
-      <header className="fixed z-20 w-full p-5 border-b border-[#B3B3B3] h-[69px] bg-white">
-        <div className="absolute left-[48%] flex  items-center gap-3">
+      <header className="z-20 w-100 p-5 border-b border-[#B3B3B3] h-[69px] bg-white flex justify-end flex-row">
+        <div className="flex  items-center gap-3">
           <div className="flex items-center gap-3 rounded-full">
             <SearchInput onSearch={handleSearch} placeholder="Search" />
             <Notification width={40} height={40} />

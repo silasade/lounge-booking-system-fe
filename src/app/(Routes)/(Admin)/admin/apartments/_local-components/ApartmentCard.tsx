@@ -33,17 +33,17 @@ function ApartmentCard({
       </div>
     </div>
   ) : (
-    <div className="w-full h-[350px] min-h-[350px] flex flex-row gap-10 rounded-lg items-center bg-white">
-      <div className="z-10 relative w-2/5 h-full">
+    <div className="w-full h-[500px] md:h-[350px] min-h-[350px] flex flex-col md:flex-row gap-4 md:gap-10 rounded-lg md:items-center bg-white">
+      <div className="relative w-full md:w-2/5 h-1/2 md:h-full">
         <Image
           src={profile}
           alt={name + " Picture"}
           fill
-          className="object-cover rounded-l-lg z-10"
+          className="object-cover rounded-t-lg md:rounded-l-lg"
         />
       </div>
-      <div className="w-3/5 flex flex-col gap-4">
-        <h3 className="text-[24px] font-[600] text-secondary">{name}</h3>
+      <div className="w-full md:w-3/5 flex flex-col gap-2 p-2 md:p-0 md:gap-4">
+        <h3 className="text-[18px] md:text-[24px] font-[600] text-secondary">{name}</h3>
         <h5 className="text-[14px] font-[400]">
           Price per night:{" "}
           <span className="font-[500]">
