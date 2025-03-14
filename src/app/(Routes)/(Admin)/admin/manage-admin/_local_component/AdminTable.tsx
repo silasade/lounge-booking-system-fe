@@ -9,6 +9,7 @@ import { Bin, Cycle, Edit, Filter } from "@/app/_global_components/icons";
 import Modals from "@/app/_global_components/Modal";
 import CreateAdmin from "../../../../../_global_components/CreateAdmin";
 import ResetPassword from "./ResetPassword";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 type ColumnsType = {
   id: string;
@@ -150,11 +151,13 @@ function AdminTable() {
           <ResetPassword handleCancel={handlePasswordForm} />
         </div>
       </Modals>
-      <Modals handleCancel={handleCancel} open={open}>
-        <div className="w-[500px]">
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-[96vw] sm:max-w-md rounded-lg h-[76vh] overflow-y-auto bg-white">
+          <DialogTitle className="sr-only">Hidden Title</DialogTitle>
+
           <CreateAdmin handleCancel={handleCancel} id={id} />
-        </div>
-      </Modals>
+        </DialogContent>
+      </Dialog>
       <div className="flex flex-col gap-5">
         <div className="flex justify-between items-center">
           <h3 className="text-[24px] font-[600]">Admin Lists</h3>

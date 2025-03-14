@@ -81,7 +81,7 @@ function Header() {
       </header>
       <Dialog open={open} onOpenChange={setOpen}>
       
-        <DialogContent className="max-w-[96vw] sm:max-w-md rounded-lg h-[96vh] overflow-y-auto bg-white">
+        <DialogContent className="max-w-[96vw] sm:max-w-md rounded-lg h-[76vh] overflow-y-auto bg-white">
         <DialogTitle className="sr-only">Hidden Title</DialogTitle>
 
           <CreateAdmin handleCancel={handleCancel} />

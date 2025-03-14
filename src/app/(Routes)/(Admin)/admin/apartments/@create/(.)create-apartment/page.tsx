@@ -23,7 +23,7 @@ function CreateApartment() {
   }, [pathName]);
   return (
     <Modals handleCancel={handleCancel} open={open}>
-      <div className="w-[500px]">
+      <div className="w-[500px] max-h-[65vh] overflow-y-auto">
         <ApartmentForm handleCancel={handleCancel} />
       </div>
       ;

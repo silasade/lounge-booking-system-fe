@@ -7,11 +7,11 @@ import PopOver from "@/app/_global_components/shadcn-ui/PopOver";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleMenu = () => {
     setOpenMenu((prev) => !prev);
   };
-
   return (
     <header
       className={`overflow-hidden backdrop-blur-sm z-40 w-full fixed top-0 font-roboto text-secondary flex flex-col md:flex-row items-start md:items-center md:justify-center pl-5 md:pl-0 md:p-0 transition-all duration-500 ease-in-out ${
@@ -33,6 +33,8 @@ function Header() {
         </Link>
 
         <PopOver
+          isOpen={isOpen}
+          onOpenChange={setIsOpen}
           className="p-0 pr-0 w-full md:w-64"
           trigger={
             <span className="cursor-pointer hover:text-white">

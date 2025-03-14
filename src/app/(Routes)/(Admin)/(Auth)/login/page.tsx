@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const { Text } = Typography;
 type Inputs = {
-  adminId: string;
+  email: string;
   password: string;
 };
 function Login() {
@@ -35,19 +35,20 @@ function Login() {
             <h5 className="text-[20px] font-[400] text-[#FBFDFF]">Admin</h5>
             <Controller
               control={control}
-              name="adminId"
+              name="email"
               rules={{ required: "Please enter your Id" }}
               render={({ field }) => (
                 <Input
                   {...field}
                   placeholder="Admin ID"
-                  status={errors.adminId ? "error" : ""}
+                  type="email"
+                  status={errors.email ? "error" : ""}
                   className="p-3 rounded-lg bg-white h-[60px]"
                 />
               )}
             />
-            {errors.adminId?.message && (
-              <Text type="danger">{errors.adminId.message}</Text>
+            {errors.email?.message && (
+              <Text type="danger">{errors.email.message}</Text>
             )}
           </div>
           <div className="flex flex-col gap-2 w-full">
