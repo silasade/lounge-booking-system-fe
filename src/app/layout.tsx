@@ -14,7 +14,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Nano lounge",
+  title: "Nana's lounge",
   description:
     "Indulge in refined apartments or unwind with our exclusive pool services – tailored to your needs",
   category: "Business",

@@ -40,7 +40,7 @@ function Login() {
               render={({ field }) => (
                 <Input
                   {...field}
-                  placeholder="Admin ID"
+                  placeholder="email address"
                   type="email"
                   status={errors.email ? "error" : ""}
                   className="p-3 rounded-lg bg-white h-[60px]"
@@ -75,7 +75,7 @@ function Login() {
             <Checkbox className="text-secondary bg-transparent">
               Remember me
             </Checkbox>
-            <Link href="/reset-password">Forgot password?</Link>
+            <Link href="/forgot-password">Forgot password?</Link>
           </div>
           <Button
             loading={isSubmitting}
